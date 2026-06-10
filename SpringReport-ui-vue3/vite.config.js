@@ -43,7 +43,7 @@ const loadI18n = isDev ? vueI18n({ include: path.resolve(__dirname, './src/local
 // https://vitejs.dev/config/
 export default defineConfig({
   root: process.cwd(),
-  base: '/SpringReport-vue3',
+  base: '/SupReport',
   publicDir,
   logLevel,
   clearScreen,

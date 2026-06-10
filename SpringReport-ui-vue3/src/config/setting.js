@@ -54,7 +54,7 @@ export const setting = {
   //token存储位置localStorage sessionStorage
   storage: 'localStorage',
   // 标题
-  title: 'SpringReport-Vue3',
+  title: 'SupReport',
   // 版权信息
   copyright: '',
   // 是否显示页面底部自定义版权信息

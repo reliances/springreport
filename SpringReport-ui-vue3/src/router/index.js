@@ -839,7 +839,7 @@ export const constantThirdPartyRoutes = [
 export const asyncRoutes = [];
 
 const router = createRouter({
-  history: createWebHistory('/SpringReport-vue3'),
+  history: createWebHistory('/SupReport'),
   routes: constantRoutes,
   // routes:constantThirdPartyRoutes,
 });
