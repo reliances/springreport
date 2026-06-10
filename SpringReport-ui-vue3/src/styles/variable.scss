@@ -67,9 +67,9 @@ $base-main-mobile-no-tag-top: 60px;
 // 纵向布局内容呢距顶部距离
 $base-main-vertical-top: 50px;
 // 内容呢距顶部距离(固定头部,有标签)
-$base-main-fixed-top: 120px;
+$base-main-fixed-top: 105px;
 // 内容呢距顶部距离(固定头部， 无标签)
-$base-main-vertical-fixed-notag-top: 60px;
+$base-main-vertical-fixed-notag-top: 50px;
 // 内容呢距顶部距离(无固定，无标签)
 $base-main-notag-top: 0;
 
@@ -134,7 +134,7 @@ $base-margin-20: 25px;
 $base-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.05);
 $base-tabs-bar-height: 55px;
 $base-tag-item-height: 34px;
-$base-nav-bar-height: 64px;
+$base-nav-bar-height: 50px;
 
 //默认动画
 $base-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border 0s,

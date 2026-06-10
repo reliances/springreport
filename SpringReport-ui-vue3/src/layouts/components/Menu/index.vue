@@ -13,17 +13,17 @@
       @open="handleOpen"
       @close="handleClose"
     >
-      <div class="logo df-c">
+      <div class="logo df-c" style="width: 231px; margin-left: -10px;">
         <div>
           <img
             v-show="!isCollapse"
-            src="@/assets/img/logoWithName.png"
-            style="margin-left: 20px; height: 30px; width: auto"
+            src="@/assets/img/SupX.png"
+            style="margin-left: 20px;width: auto"
           />
           <img
             v-show="isCollapse"
-            src="@/assets/img/logo.png"
-            style="margin-left: 20px; height: 24px; width: auto"
+            src="@/assets/img/SupX-all.svg"
+            style="margin-left: 20px;width: auto"
           />
         </div>
       </div>
@@ -196,6 +196,7 @@
   }
   .logo {
     height: $base-nav-bar-height;
+    background: #1476ff;
     border-bottom: 1px solid #f6f6f6;
     transition: all 0.3s;
   }

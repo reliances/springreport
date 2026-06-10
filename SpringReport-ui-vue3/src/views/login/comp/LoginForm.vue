@@ -27,9 +27,9 @@
         type="primary"
         size="large"
         :loading="loading"
-        style="width: 100%"
+        style="width: 100%; background-color: #1476ff;"
         @click="handleLogin"
-        >登录</el-button
+      >登录</el-button
       >
     </el-form-item>
   </el-form>

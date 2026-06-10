@@ -54,7 +54,7 @@
     padding-right: 24px;
     overflow: hidden;
     user-select: none;
-    background: $base-color-white;
+    background: #1476ff;
     box-shadow: $base-box-shadow;
     .left-panel {
       display: flex;

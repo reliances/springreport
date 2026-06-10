@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+
+<head lang='zh'>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="renderer" content="webkit" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0" />
+	<title>Luckysheet</title>
+
+	<link rel='stylesheet' href='./plugins/css/pluginsCss.css' />
+	<link rel='stylesheet' href='./plugins/plugins.css' />
+	<link rel='stylesheet' href='./css/luckysheet.css' />
+	<link rel='stylesheet' href='./assets/iconfont/iconfont.css' />
+	<link rel='stylesheet' href='./assets/customiconfont/iconfont.css' />
+	<script src="./plugins/js/plugin.js"></script>
+
+	<!-- rollup luckysheet.js -->
+	<script src="./luckysheet.umd.js"></script>
+
+</head>
+
+<body>
+	<!-- Non-full screen test -->
+	<!-- <div style="position: relative;width: 100%;height: 100%;">
+
+		<div id="luckysheet" style="margin:0px;padding:0px;position:absolute;width:80%;height:500px;left: 20%;top: 200px;bottom:0;right: 0;"></div>
+	</div> -->
+	
+	<div id="luckysheet" style="margin:0px;padding:0px;position:absolute;width:100%;height:100%;left: 0px;top: 0px;"></div>
+	<!-- demo feature, non-production use -->
+	<script src="./demoData/demoFeature.js"></script>
+	<script src="./demoData/sheetFormula.js"></script>
+	<script src="./demoData/sheetCell.js"></script>
+	<script src="./demoData/sheetConditionFormat.js"></script>
+	<script src="./demoData/sheetTable.js"></script>
+	<script src="./demoData/sheetComment.js"></script>
+	<script src="./demoData/sheetPivotTableData.js"></script>
+	<script src="./demoData/sheetPivotTable.js"></script>
+	<script src="./demoData/sheetSparkline.js"></script>
+	<script src="./demoData/sheetChart.js"></script>
+	<script src="./demoData/sheetPicture.js"></script>
+	<script src="./demoData/sheetDataVerification.js"></script>
+
+	<script>
+		// import sheetFormula from './demoData/sheetFormula.js'
+		// import sheetCell from './demoData/sheetCell.js'
+		// import sheetConditionFormat from './demoData/sheetConditionFormat.js'
+		// import sheetTable from './demoData/sheetTable.js'
+		// import sheetComment from './demoData/sheetComment.js'
+		// import sheetPivotTableData from './demoData/sheetPivotTableData.js'
+		// import sheetPivotTable from './demoData/sheetPivotTable.js'
+		// import sheetSparkline from './demoData/sheetSparkline.js'
+		// import sheetChart from './demoData/sheetChart.js'
+		// import sheetPicture from './demoData/sheetPicture.js'
+		// import sheetDataVerification from './demoData/sheetDataVerification.js'
+
+		$(function () {
+
+			// According to the browser language
+			var lang = luckysheetDemoUtil.language() === 'zh' ? 'zh' : 'en';
+			var isShare = luckysheetDemoUtil.getRequest().share; // '?share=1' opens the collaborative editing mode
+			var gridKey = luckysheetDemoUtil.getRequest().gridKey; // workbook id for collaborative editing, or directly define here
+            var options = null;
+			console.log(lang)
+            if(isShare || gridKey){
+				// http://localhost:3000/?gridKey=12eyy789-kk45ofid-23737245
+				if(!gridKey){
+					alert('If gridKey is not provided in the address bar, please add it in the source code')
+				}
+                options = {
+                    container: "luckysheet",
+					title:"",
+					showinfobar: false,
+                    lang: lang,
+					plugins: ['chart'],
+					forceCalculation:true,
+					allowEdit: true,
+                    allowUpdate:true,
+                    // updateImageUrl: location.origin + "/luckysheet/api/updateImg",
+                    updateUrl: location.protocol === 'https:' ? 'wss' : 'ws'+"://"+ location.host +"/luckysheet/websocket/luckysheet",
+                    gridKey: gridKey,
+                    loadUrl: location.origin + "/luckysheet/load",
+                    loadSheetUrl: location.origin + "/luckysheet/loadsheet",
+					isLoadALL:1,
+					uploadImage:function(file)
+					{
+						return new Promise(function (resolve, reject) {
+						var xhr = new XMLHttpRequest();
+						var url = localStorage.getItem('luckysheetUploadImg');
+						if(!url)
+						{
+							url = 'http://localhost:9099/springReport/api/common/upload';
+						}
+						xhr.open('POST', url);
+						// 额外的请求头
+						var headers = {
+							'Authorization':localStorage.getItem("token")
+						};
+						if (headers) {
+							Object.keys(headers).forEach(function (k) {
+								xhr.setRequestHeader(k, headers[k]);
+							});
+						}
+						var data = new FormData();
+						// 要上传的图片文件
+						data.append('file', file, file.name || '');
+
+						xhr.send(data);
+						xhr.onreadystatechange = function () {
+							if (xhr.readyState === 4) {
+								if (xhr.status === 200) {
+									var res = JSON.parse(xhr.responseText);
+									var url = res.responseData.fileUri;
+									if (url) {
+										resolve(url); // 给上传的后的地址
+									} else {
+										reject('image upload error');
+									}
+								} else {
+									reject('image upload error');
+								}
+							}
+						};
+					});
+					},
+					hook:{
+						cellDragStop: function (cell, postion, sheetFile, ctx, event) {
+			                // console.info(cell, postion, sheetFile, ctx, event);
+			            },
+						updateCellFormat: function(row_st, row_ed, col_st, col_ed){
+							// console.log(row_st)
+						},
+						rowTitleCellRenderBefore:function(rowNum,postion,ctx){
+							// console.log(rowNum);
+						},
+						rowTitleCellRenderAfter:function(rowNum,postion,ctx){
+							// console.log(ctx);
+						},
+						columnTitleCellRenderBefore:function(columnAbc,postion,ctx){
+							// console.log(columnAbc);
+						},
+						columnTitleCellRenderAfter:function(columnAbc,postion,ctx){
+							// console.log(postion);
+						},
+						cellRenderBefore:function(cell,postion,sheetFile,ctx){
+							// console.log(cell,postion,sheetFile,ctx);
+						},
+						cellRenderAfter:function(cell,postion,sheetFile,ctx){
+							// console.log(postion);
+						},
+						cellMousedownBefore:function(cell,postion,sheetFile,ctx){
+							// console.log(postion);
+							// return false
+						},
+						cellMousedown:function(cell,postion,sheetFile,ctx){
+							console.log(sheetFile)
+							// drawButton(ctx,{x:10,y:10}, 80, 36, 4, '#000', '#3377ff', '开始', '#fff', 14)
+						},
+						sheetMousemove:function(cell,postion,sheetFile,moveState,ctx){
+							// console.log(cell,postion,sheetFile,moveState,ctx);
+						},
+						sheetMouseup:function(cell,postion,sheetFile,moveState,ctx){
+							// console.log(cell,postion,sheetFile,moveState,ctx);
+						},
+						cellAllRenderBefore:function(data,sheetFile,ctx){
+							// console.info(data,sheetFile,ctx)
+						},
+						updated:function(operate){
+							// console.info(operate)
+						},
+						cellUpdateBefore:function(r,c,value,isRefresh){
+							// console.info('cellUpdateBefore',r,c,value,isRefresh)
+						},
+						rangeClear:function(){
+							console.log("rangeClear")
+						},
+						cellUpdated:function(r,c,oldValue, newValue, isRefresh){
+							// console.info('cellUpdated',r,c,oldValue, newValue, isRefresh)
+						},
+						sheetActivate:function(index, isPivotInitial, isNewSheet){
+							// console.info(index, isPivotInitial, isNewSheet)
+						},
+						rangeSelect:function(index, sheet){
+							
+							// console.info(index)
+							// console.info(sheet)
+						},
+						commentInsertBefore:function(r, c){
+							// console.info(r, c)
+						},
+						commentInsertAfter:function(r, c, cell){
+							// console.info(r, c, cell)
+						},
+						commentDeleteBefore:function(r, c, cell){
+							// console.info(r, c, cell)
+						},
+						commentDeleteAfter:function(r, c, cell){
+							// console.info(r, c, cell)
+						},
+						commentUpdateBefore:function(r, c, value){
+							// console.info(r, c, value)
+						},
+						commentUpdateAfter:function(r, c, oldCell, newCell ){
+							// console.info(r, c, oldCell, newCell)
+						},
+						cellEditBefore:function(range){
+							let shareMode = luckysheet.getServerAttr("shareMode");
+							let shareUser = luckysheet.getServerAttr("shareUser");
+							console.log(shareMode)
+							console.log(shareUser)
+							if(shareMode && !shareUser)
+							{
+								console.log("共享模式不允许非共享者进行操作")
+								// return false;
+							}
+							// setTimeout(function () {
+							// 	luckysheet.setCellValue(13,5,"test",{isRefresh:false});
+							// 	luckysheet.exitEditMode();
+							// 	luckysheet.setRangeShow({row:[13,13],column:[5,5]});
+							// }, 0);
+							// console.info(range)
+						},
+						shareModeClick:function(){
+							console.log(1)
+						},
+						initShareModeHook:function(shareMode,shareUser,shareUserName){
+							console.log(shareMode,shareUser,shareUserName)
+						},
+						shareModeEditForbidden:function(){
+							console.log("共享模式不允许非共享者进行操作")
+						},
+						workbookCreateAfter:function(json){
+							// console.info(json)
+						},
+						rangePasteBefore:function(range,data){
+							// console.info('rangePasteBefore',range,data)
+							// return false; //Can intercept paste
+						},
+						rangeClearBefore:function(range,data){
+							// console.log(1)
+						},
+						mergeCells:function(range,data){
+							console.log(1)
+						},
+						mergeCancle:function(range,data){
+							console.log(2)
+						},
+						sheetDeleteAfter:function(file){
+							console.log(file)
+						},
+						sheetEditNameAfter:function(){
+							console.log(2)
+						},
+						insertRowOrColumns:function(type, index, value, direction,sheetIndex){
+							// console.log(type)
+							// console.log(index)
+							// console.log(value)
+							// console.log(direction)
+							// console.log(sheetIndex)
+						},
+						rowInsertBefore:function(coordinate,count){
+						},
+						rowDeleteBefore:function(start,end){
+						},
+						luckysheetDeleteCell:function(type, str, edr, stc, edc, sheetIndex){
+						},
+						chartMoveOrResize:function(chartId,offsetHeight,offsetWidth){
+						},
+						rangeAuthCheck:function(range){
+							// alert(1)
+							return true;
+						},
+						uploadFileClick:function(type){
+							console.log(type)
+						},
+						saveClick:function(){
+							console.log(1)
+						},
+						uploadAttachment:function(){
+							console.log(1)
+						},
+						viewAttachment:function(item){
+							console.log(item)
+						},
+						
+
+					},
+                }
+			}else{
+                // http://localhost:3000/ 
+                options = {
+                    container: 'luckysheet',
+					lang: lang,
+					title:"",
+					showinfobar: false,
+					// pager: {
+					// 	pageIndex: 1,
+					// 	pageSize: 10,
+					// 	total: 50,
+					// 	selectOption: [10, 20]
+					// },
+					column:20,
+					allowEdit: true,
+					isLoadALL:1,
+					isReport:false,
+					allowUpdate:false,
+					gridKey: '1739867120705662978',
+                    // updateImageUrl: location.origin + "/luckysheet/api/updateImg",
+                    updateUrl: location.protocol === 'https:' ? 'wss' : 'ws'+"://"+ location.host +"/luckysheet/websocket/luckysheet",
+					forceCalculation:true,
+					plugins: ['chart'],
+					fontList:[
+						{
+						"fontName":"条形码（barCode128）",
+						"url":"./assets/iconfont/code128.ttf"
+						},
+						{
+						"fontName":"二维码（qrCode）",
+						"url":"./assets/iconfont/code128.ttf"
+						},
+						
+					],
+					hook:{
+						cellDragStop: function (cell, postion, sheetFile, ctx, event) {
+			                console.info(cell, postion, sheetFile, ctx, event);
+			            },
+						updateCellFormat: function(row_st, row_ed, col_st, col_ed){
+							// console.log(row_st)
+						},
+						rowTitleCellRenderBefore:function(rowNum,postion,ctx){
+							// console.log(rowNum);
+						},
+						rowTitleCellRenderAfter:function(rowNum,postion,ctx){
+							// console.log(ctx);
+						},
+						columnTitleCellRenderBefore:function(columnAbc,postion,ctx){
+							// console.log(columnAbc);
+						},
+						columnTitleCellRenderAfter:function(columnAbc,postion,ctx){
+							// console.log(postion);
+						},
+						cellRenderBefore:function(cell,postion,sheetFile,ctx){
+							// console.log(cell,postion,sheetFile,ctx);
+						},
+						cellRenderAfter:function(cell,postion,sheetFile,ctx){
+							// console.log(postion);
+						},
+						cellMousedownBefore:function(cell,postion,sheetFile,ctx){
+							// console.log(postion);
+						},
+						cellMousedown:function(cell,postion,sheetFile,ctx){
+							console.log(sheetFile)
+							// luckysheet.refreshHighlighRowCol(true);
+							let pager = {
+								"pageIndex": 3,
+								"pageSize": 15,
+								"total": 100,
+								"showTotal": true,
+								"showSkip": true,
+								"selectOption": [
+									5,
+									10,
+									15,
+									20,
+									30,
+									50,
+									100,
+									150,
+									200,
+									300,
+									500,
+									800,
+									1000,
+									2000,
+									3000,
+									4000,
+									5000
+								]
+							}
+							luckysheet.destroyPager(pager);
+						},
+						sheetMousemove:function(cell,postion,sheetFile,moveState,ctx){
+							// console.log(cell,postion,sheetFile,moveState,ctx);
+						},
+						sheetMouseup:function(cell,postion,sheetFile,moveState,ctx){
+							// console.log(cell,postion,sheetFile,moveState,ctx);
+						},
+						cellAllRenderBefore:function(data,sheetFile,ctx){
+							// console.info(data,sheetFile,ctx)
+						},
+						updated:function(operate){
+							// console.info(operate)
+						},
+						cellUpdateBefore:function(r,c,value,isRefresh){
+							// console.info('cellUpdateBefore',r,c,value,isRefresh)
+						},
+						rangeClear:function(){
+							console.log("rangeClear")
+						},
+						execFAfter:function(){
+							console.log("execFAfter")
+						},
+						cellUpdated:function(r,c,oldValue, newValue, isRefresh){
+							console.log(1232)
+							// console.info('cellUpdated',r,c,oldValue, newValue, isRefresh)
+						},
+						sheetActivate:function(index, isPivotInitial, isNewSheet){
+							// console.info(index, isPivotInitial, isNewSheet)
+						},
+						rangeSelect:function(index, sheet){
+							
+							// console.info(index)
+							// console.info(sheet)
+						},
+						commentInsertBefore:function(r, c){
+							// console.info(r, c)
+						},
+						commentInsertAfter:function(r, c, cell){
+							// console.info(r, c, cell)
+						},
+						commentDeleteBefore:function(r, c, cell){
+							// console.info(r, c, cell)
+						},
+						commentDeleteAfter:function(r, c, cell){
+							// console.info(r, c, cell)
+						},
+						commentUpdateBefore:function(r, c, value){
+							// console.info(r, c, value)
+						},
+						commentUpdateAfter:function(r, c, oldCell, newCell ){
+							// console.info(r, c, oldCell, newCell)
+						},
+						cellEditBefore:function(range ){
+							let shareMode = luckysheet.getServerAttr("shareMode");
+							// console.log(1)
+							// setTimeout(function () {
+							// 	luckysheet.setCellValue(13,5,"test",{isRefresh:false});
+							// 	luckysheet.exitEditMode();
+							// 	luckysheet.setRangeShow({row:[13,13],column:[5,5]});
+							// }, 0);
+							// console.info(range)
+						},
+						workbookCreateAfter:function(json){
+							// console.info(json)
+						},
+						rangePasteBefore:function(range,data){
+							// console.log(range)
+							// return false;
+							// console.info('rangePasteBefore',range,data)
+							// return false; //Can intercept paste
+						},
+						copyPasteBefore:function(range,copyRange){
+							console.log(range)
+							console.log(copyRange)
+							// return false;
+						},
+						pasteHandlerBefore:function(range,data){
+							console.log(range)
+							console.log(data)
+							// return false;
+						},
+						rangeClearBefore:function(range){
+							console.log(range)
+							return false;
+						},
+						execFAfter:function(){
+							console.log("execFAfter")
+						},
+						updateFormatBefore:function(range){
+							console.log(range)
+							return false;
+						},
+						mergeCells:function(range,data){
+							console.log(1)
+						},
+						mergeCancle:function(range,data){
+							console.log(2)
+						},
+						sheetDeleteAfter:function(file){
+							console.log(file)
+						},
+						sheetEditNameAfter:function(){
+							console.log(2)
+						},
+						insertRowOrColumns:function(type, index, value, direction,sheetIndex){
+							// console.log(type)
+							// console.log(index)
+							// console.log(value)
+							// console.log(direction)
+							// console.log(sheetIndex)
+						},
+						rowInsertBefore:function(coordinate,count){
+						},
+						rowDeleteBefore:function(start,end){
+						},
+						luckysheetDeleteCell:function(type, str, edr, stc, edc, sheetIndex){
+						},
+						chartMoveOrResize:function(chartId,offsetHeight,offsetWidth){
+						},
+						rangeAuthCheck:function(range){
+							return true;
+						},
+						uploadFileClick:function(type){
+							console.log(type)
+						},saveClick:function(){
+							console.log(1)
+						},
+						dragEndBefore:function(){
+							console.log(1)
+							return true;
+						},
+						uploadAttachment:function(){
+							console.log(1)
+						},
+						viewAttachment:function(item){
+							console.log(item)
+						},
+						afterInitImg:function(){
+							console.log(2)
+						},
+						loadDataAfter:function(){
+							console.log(1)
+						},
+
+					},
+					data: 
+					[sheetCell],
+					pager:{
+					"pageIndex": 1,
+					"pageSize": 5,
+					"total": 201,
+					"showTotal": true,
+					"showSkip": true,
+					"selectOption": [
+						5,
+						10,
+						15,
+						20,
+						30,
+						50,
+						100,
+						150,
+						200,
+						300,
+						500,
+						800,
+						1000,
+						2000,
+						3000,
+						4000,
+						5000
+					]
+				}
+				}
+			}
+			options.loading={
+				image:()=>{
+					return `<svg viewBox="25 25 50 50" class="circular">
+					<circle cx="50" cy="50" r="20" fill="none"></circle>
+					</svg>`
+				},
+				imageClass:"loadingAnimation"
+			}
+			options.cellRightClickConfig = {
+				customs: [{
+					title: 'test',
+					onClick: function (clickEvent, event, params) {
+						console.log('function test click', clickEvent, event, params)
+					}
+				}]
+			}
+			luckysheet.create(options);
+			luckysheet.addLuckysheetDivider('B,A')
+			})
+
+			function drawButton(ctx, startPoint, width, height, radius, borderColor, backgroundColor, text, textColor, fontSize) {
+				ctx.strokeStyle=borderColor;
+				ctx.fillStyle=backgroundColor;
+				ctx.beginPath();
+				ctx.moveTo(startPoint.x, startPoint.y+radius);
+				ctx.arcTo(startPoint.x, startPoint.y, startPoint.x+radius, startPoint.y,  radius);
+				ctx.lineTo(startPoint.x+width-radius, startPoint.y)
+				ctx.arcTo(startPoint.x+width, startPoint.y, startPoint.x+width, startPoint.y+radius,  radius);
+				ctx.lineTo(startPoint.x+width, startPoint.y+height-radius)
+				ctx.arcTo(startPoint.x+width, startPoint.y+height, startPoint.x+width-radius, startPoint.y+height,  radius);
+				ctx.lineTo(startPoint.x+radius, startPoint.y+height)
+				ctx.arcTo(startPoint.x, startPoint.y+height, startPoint.x, startPoint.y+height-radius, radius)
+				ctx.closePath();
+				ctx.stroke();
+				ctx.fill();
+				ctx.fillStyle=textColor;
+				ctx.font = `${fontSize}px sans-serif`;
+				ctx.textAlign='center';
+				ctx.textBaseline='middle';
+				ctx.fillText(text, startPoint.x+width/2, startPoint.y+height/2);
+			}
+	</script>
+<style>
+	/* @font-face {
+		font-family: 'barCode';
+		src: url('./assets/iconfont/3OF9.ttf');
+		} */
+	/* 自定义loading演示样式 */
+	@keyframes loading-rotate {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes loading-dash {
+		0% {
+			stroke-dasharray: 1, 200;
+			stroke-dashoffset: 0;
+		}
+
+		50% {
+			stroke-dasharray: 90, 150;
+			stroke-dashoffset: -40px;
+		}
+
+		100% {
+			stroke-dasharray: 90, 150;
+			stroke-dashoffset: -120px;
+		}
+	}
+
+	.loadingAnimation {
+		width: 3em;
+		height: 3em;
+		animation: loading-rotate 2s linear infinite;
+	}
+
+	.loadingAnimation circle {
+		animation: loading-dash 1.5s ease-in-out infinite;
+		stroke-dasharray: 90, 150;
+		stroke-dashoffset: 0;
+		stroke-width: 2;
+		stroke: currentColor;
+		stroke-linecap: round;
+	}
+</style>
+</body>
+
+</html>

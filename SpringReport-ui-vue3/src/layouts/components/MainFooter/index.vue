@@ -8,7 +8,7 @@
 -->
 <template>
   <el-footer class="footer df-c">
-    <div class="filing-information df-c-c">
+<!--    <div class="filing-information df-c-c">
       <a
         target="_blank"
         href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37021302001006"
@@ -16,7 +16,7 @@
       >
       <img src="@/assets/img/aicon.png" class="beian-icon" />
       <a target="_blank" href="https://beian.miit.gov.cn/">鲁ICP备2021031250号-2</a>
-    </div>
+    </div>-->
     <!-- <span class="text"></span> -->
   </el-footer>
 </template>

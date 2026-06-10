@@ -1506,6 +1506,16 @@ export default {
       var key = r + '_' + c
       var sheetIndex = luckysheet.getSheet().index
       var that = this
+
+      // 如果 tplType 为 1，整个表格全部禁止编辑
+      if(this.tplType == 1){
+        this.commonUtil.showMessage({ message: '该报表不允许进行编辑。', type: 'error' })
+        setTimeout(function() {
+          luckysheet.exitEditMode()
+        }, 0)
+        return false
+      }
+
       // 判断该单元格是否可编辑
       if(this.tplType == 2){
         if (this.cellAllowEditConfigs[sheetIndex]) {
@@ -1630,6 +1640,12 @@ export default {
     },
     //选中单元格清除事件
     rangeClear() {
+      // 如果 tplType 为 1，整个表格全部禁止编辑
+      if(this.tplType == 1){
+        this.commonUtil.showMessage({ message: '该报表不允许进行编辑。', type: 'error' })
+        return
+      }
+
       var sheetIndex = luckysheet.getSheet().index;
       if (this.cellAllowEditConfigs[sheetIndex] && this.tplType == 2) {
         var denyEditCells = []; //不允许编辑的单元格
@@ -1920,7 +1936,7 @@ export default {
             data = luckysheetFile.data;
             sheetDatas[sheetIndex] = data;
           }
-          
+
           for (let index = 0; index < wrongMsg.length; index++) {
             const element = wrongMsg[index]
             comment = comment + element
@@ -2015,8 +2031,8 @@ export default {
         this.loading = true
         const obj = {
           url: this.apis.previewReport.reportDataApi,
-          params: { reportDatas: reportDatas, datasKey: this.datasKey, basicDatas: originalDatas, 
-            tplId: tplId, version: this.reportVersion, reCalculate: this.reCalculate,autoFillAttrs:this.sheetAutoFillAttrs, 
+          params: { reportDatas: reportDatas, datasKey: this.datasKey, basicDatas: originalDatas,
+            tplId: tplId, version: this.reportVersion, reCalculate: this.reCalculate,autoFillAttrs:this.sheetAutoFillAttrs,
             mainAttrs:this.sheetMainAttrs,mainDatasources:this.sheetMainDatasources,mainRowDatas:this.mainRowDatas},
           removeEmpty: false,
           callback: this.submitDatasCallback
@@ -2241,7 +2257,7 @@ export default {
                 }
               }
               }
-              
+
             }
             const tableKeys = this.sheetTableKeys[sheetIndex]
             if (tableKeys) {
@@ -3349,6 +3365,12 @@ export default {
       }
     },
     pictureClick(){
+      // 如果 tplType 为 1，整个表格全部禁止编辑
+      if(this.tplType == 1){
+        this.commonUtil.showMessage({ message: '该报表不允许进行编辑。', type: 'error' })
+        return
+      }
+
       var that = this;
       if (that.ctx) {
         var r = that.clickCellPosition.r
@@ -3378,6 +3400,12 @@ export default {
       }
     },
     copyPasteBefore(range, copyRange){
+      // 如果 tplType 为 1，整个表格全部禁止编辑
+      if(this.tplType == 1){
+        this.commonUtil.showMessage({ message: '该报表不允许进行编辑。', type: 'error' })
+        return false
+      }
+
       var str = range[0].row[0]
       var edr = range[0].row[1]
       var stc = range[0].column[0]
@@ -3394,6 +3422,12 @@ export default {
        return isAllowEdit;
     },
     pasteHandlerBefore(range, data){
+      // 如果 tplType 为 1，整个表格全部禁止编辑
+      if(this.tplType == 1){
+        this.commonUtil.showMessage({ message: '该报表不允许进行编辑。', type: 'error' })
+        return false
+      }
+
       var str = range[0].row[0]
       var edr = range[0].row[1]
       var stc = range[0].column[0]
@@ -3410,6 +3444,11 @@ export default {
        return isAllowEdit;
     },
     checkCellAllowEdit(r,c){
+      // 如果 tplType 为 1，整个表格全部禁止编辑
+      if(this.tplType == 1){
+        return false
+      }
+
       let result = true
       var key = r + '_' + c
       var sheetIndex = luckysheet.getSheet().index

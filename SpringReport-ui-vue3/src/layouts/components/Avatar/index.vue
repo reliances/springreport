@@ -3,7 +3,7 @@
     <el-dropdown @command="handleCommand">
       <div class="el-dropdown-link df-c">
         <img src="@/assets/img/user-circle.png" style="margin-right: 8px; height: 36px" />
-        <span style="margin-right: 8px">{{ userName }}</span>
+        <span style="margin-right: 8px; color: #ffffff">{{ userName }}</span>
         <div class="role-name" :class="{ 'role-name-apply': roleName == '试用' }">
           {{ roleName }}
         </div>

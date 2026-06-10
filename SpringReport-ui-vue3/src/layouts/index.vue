@@ -6,7 +6,7 @@
         <el-header
           class="header"
           :class="{ fixed: true }"
-          height="64px"
+          height="50px"
           :style="{ left: isCollapse ? '64px' : '228px' }"
         >
           <NavBar />

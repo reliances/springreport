@@ -40,7 +40,7 @@
         }else{
           localStorage.removeItem("thirdPartyType")
         }
-      if (token && !localStorage.getItem('token')) {
+      if (token) {
         localStorage.setItem('token', token);
         let userInfo = parseJWT(token);
         localStorage.setItem(
@@ -55,15 +55,15 @@
                 commonConstants.sessionItem.roleName,
                 userInfo.roleName
               ) // 用户名
-              
+
               localStorage.setItem(
                 commonConstants.sessionItem.isSystemMerchant,
                 userInfo.isSystemMerchant
-              ) 
+              )
               localStorage.setItem(
                 commonConstants.sessionItem.merchantNo,
                 userInfo.merchantNo
-              ) 
+              )
               localStorage.setItem(
                 commonConstants.sessionItem.isAdmin,
                 userInfo.isAdmin

@@ -12,13 +12,13 @@
   <div class="line" />
   <div class="tem df-c" @click="goTemStore" >
     <img src="@/assets/img/template/tem.png" style="width: 24px; height: 24px; display: block" />
-    <div class="tem-name">模板市场</div>
+    <div class="tem-name" style="color: #ffffff">模板市场</div>
   </div>
   <div class="line" />
   <div v-if="state.isSystemMerchant == 1" class="df-c">
     <el-dropdown class="white font" trigger="click" placement="bottom" @command="changeMerchant">
       <div class="system-merchant df-c">
-        <span style="margin-right: 8px">{{ merchantName }}</span>
+        <span style="margin-right: 8px; color: #ffffff">{{ merchantName }}</span>
         <icon-sort-two theme="outline" size="12" style="transform: rotate(90deg)" />
       </div>
       <template #dropdown>
