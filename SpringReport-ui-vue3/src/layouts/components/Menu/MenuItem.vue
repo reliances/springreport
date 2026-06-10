@@ -84,6 +84,6 @@
   }
 
   :deep(.el-sub-menu__title:hover) {
-    background-color: #f0fcf9 !important;
+    background-color: $supx-color-primary-light !important;
   }
 </style>

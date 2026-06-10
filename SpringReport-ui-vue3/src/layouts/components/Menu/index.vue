@@ -196,8 +196,8 @@
   }
   .logo {
     height: $base-nav-bar-height;
-    background: #1476ff;
-    border-bottom: 1px solid #f6f6f6;
+    @include supx-header-bg(0);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s;
   }
   .aside {

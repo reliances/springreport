@@ -1,3 +1,21 @@
 .el-form-item__content .el-select__wrapper{
     min-width:192px !important;
 }
+
+/* SupX 风格：表单标签无冒号、紧凑间距 */
+.el-form-item {
+  margin-bottom: 8px;
+}
+.el-form-item__label::after {
+  content: '' !important;
+}
+
+/* SupX 风格：滚动条 */
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8 !important;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #787878 !important;
+  cursor: pointer;
+}

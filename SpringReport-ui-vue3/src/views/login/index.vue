@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrap">
     <!--    <h1 class="title">上海超星医疗集团医院</h1>-->
-    <div style="width: 450px; padding: 60px 40px; background: #fff; border-radius: 10px;">
+    <div class="login-card">
       <div class="df-c">
         <img src="@/assets/img/logoWithName.png" style="width: auto; height: 48px" />
         <el-divider style="height: 2em" direction="vertical" />
@@ -21,6 +21,30 @@
   align-items: center;
   background: url('@/assets/login_bg.png') no-repeat center;
   background-size: cover;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      154deg,
+      rgba(7, 7, 9, 0.05) 30%,
+      rgba(35, 129, 255, 0.15) 48%,
+      rgba(7, 7, 9, 0.05) 64%
+    );
+    pointer-events: none;
+  }
+
+  .login-card {
+    position: relative;
+    z-index: 1;
+    width: 450px;
+    padding: 48px 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(35, 129, 255, 0.12);
+  }
 
   .title{
     position: absolute;

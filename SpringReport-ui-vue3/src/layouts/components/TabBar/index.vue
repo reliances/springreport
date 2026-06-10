@@ -6,14 +6,13 @@
           v-for="tag in visitedRouteList"
           :key="tag.path"
           class="menu-tag df-c"
-          :class="[`${tag.path.replaceAll('/', '')}`]"
+          :class="[
+            `${tag.path.replaceAll('/', '')}`,
+            fullPath.split('?')[0] == tag.path ? 'menu-tag-active' : '',
+          ]"
           @click="handleTabClick(tag)"
         >
-          <span
-            class="menu-tag-title"
-            :class="[fullPath.split('?')[0] == tag.path ? 'menu-tag-active' : '']"
-            >{{ tag.meta.title }}</span
-          >
+          <span class="menu-tag-title">{{ tag.meta.title }}</span>
           <div v-if="!isAffix(tag)" class="close" @click.stop="handleTabRemove(tag.path)" />
         </div>
       </div>
@@ -273,12 +272,14 @@
 
 <style lang="scss" scoped>
   ._tag {
-    flex: 0 0 56px;
+    flex: 0 0 40px;
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: #f5f6f7;
     border-bottom: 1px solid #e6e6e6;
     justify-content: space-between;
+    padding: 0 8px;
+    box-sizing: border-box;
     .ycy_scrollbar {
       width: 100%;
       margin-right: 6px;
@@ -289,7 +290,7 @@
     .left {
       display: -webkit-box;
       -webkit-box-align: center;
-      height: 56px;
+      height: 40px;
       align-items: center;
       // overflow-x: auto;
       // white-space: nowrap; /* 防止Tab项换行 */
@@ -304,14 +305,23 @@
         }
       }
       .menu-tag {
-        padding: 0 16px;
-        height: 56px;
-        line-height: 56px;
+        padding: 0 12px;
+        height: 28px;
+        line-height: 28px;
+        margin-right: 4px;
         color: #333;
         font-size: 14px;
         cursor: pointer;
-        // transition: all 0.3s;
         position: relative;
+        background: #fff;
+        border: 1px solid #e4e7ed;
+        border-radius: 4px;
+        box-sizing: border-box;
+        transition: background 0.2s, border-color 0.2s, color 0.2s;
+
+        .menu-tag-title {
+          line-height: inherit;
+        }
 
         .close {
           margin-left: 4px;
@@ -319,31 +329,21 @@
           width: 12px;
           height: 12px;
           background-size: 100% 100%;
+          flex-shrink: 0;
         }
-      }
-      .menu-tag-title:hover,
-      .menu-tag-active {
-        color: $base-color-primary;
-        font-weight: bold;
-        position: relative;
 
-        &::before {
-          position: absolute;
-          content: '';
-          left: 50%;
-          bottom: 0;
-          width: 60%;
-          max-width: 62px;
-          transform: translate(-50%, -50%);
-          height: 3px;
-          background: $base-color-primary;
-          border-radius: 2px;
+        &:hover,
+        &.menu-tag-active {
+          color: $supx-color-primary;
+          font-weight: 500;
+          border-color: $supx-color-primary;
+          background: $supx-color-primary-light;
         }
       }
     }
 
     .right {
-      height: 56px;
+      height: 40px;
       display: flex;
       align-items: center;
       flex-shrink: 0;

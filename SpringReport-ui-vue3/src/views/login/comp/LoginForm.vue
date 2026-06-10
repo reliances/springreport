@@ -27,7 +27,7 @@
         type="primary"
         size="large"
         :loading="loading"
-        style="width: 100%; background-color: #1476ff;"
+        class="login-btn"
         @click="handleLogin"
       >登录</el-button
       >
@@ -151,9 +151,25 @@
 <style lang="scss" scoped>
   .login-form {
     margin-top: 20px;
+    :deep(.el-form-item) {
+      margin-bottom: 8px;
+    }
     :deep(.el-form-item__label) {
       &::before {
         content: unset !important;
+      }
+      &::after {
+        content: '' !important;
+      }
+    }
+    .login-btn {
+      width: 100%;
+      margin-top: 16px;
+      background: $supx-header-gradient;
+      border: none;
+      &:hover,
+      &:focus {
+        background: linear-gradient(90deg, $supx-color-primary-hover 0%, $supx-color-primary-end 100%);
       }
     }
   }

@@ -248,13 +248,8 @@ span {
   background-color: rgba(208, 208, 208, 0);
   font-size: 19px;
   line-height: 30px;
-  color: #17b794;
+  color: $supx-color-primary;
   font-weight: bold;
   margin: 5px 0;
-}
-:deep(.el-button--primary) {
-    color: #FFFFFF;
-    background-color: #17b794;
-    border-color: #17b794
 }
 </style>

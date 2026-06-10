@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar-container">
+  <div class="nav-bar-container" :style="{ '--header-bg-offset': headerBgOffset }">
     <!-- <el-row :gutter="15">
       <el-col :xs="4" :sm="12" :md="12" :lg="12" :xl="12" v-if="settings.mode !== ''">
         <div class="left-panel">
@@ -12,7 +12,7 @@
         <RightPanel />
       </el-col>
     </el-row> -->
-    <RightPanel />
+    <RightPanel color="#ffffff" />
   </div>
 </template>
 
@@ -40,6 +40,10 @@
     return store.getters['setting/settings'];
   });
 
+  const headerBgOffset = computed(() => {
+    return collapse.value ? '-64px' : '-228px';
+  });
+
   // const emit = defineEmits(['handleCollapse']);
 
   // const handleCollapse = () => {
@@ -54,8 +58,10 @@
     padding-right: 24px;
     overflow: hidden;
     user-select: none;
-    background: #1476ff;
-    box-shadow: $base-box-shadow;
+    background: $supx-header-gradient;
+    background-size: 100vw $base-nav-bar-height;
+    background-repeat: no-repeat;
+    background-position: var(--header-bg-offset, -228px) top;
     .left-panel {
       display: flex;
       align-items: center;

@@ -59,6 +59,10 @@
     align-items: center;
     justify-content: flex-end;
     height: $base-nav-bar-height;
+    :deep(.icon-hover:hover) {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
     .msg-badge {
       :deep(.el-badge__content.is-fixed) {
         right: calc(10px + var(--el-badge-size) / 2);

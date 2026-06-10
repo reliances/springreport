@@ -7,7 +7,7 @@
         <div class="role-name" :class="{ 'role-name-apply': roleName == '试用' }">
           {{ roleName }}
         </div>
-        <icon-down-one fill="#959ea6" />
+        <icon-down-one fill="#ffffff" />
       </div>
       <template #dropdown>
         <el-dropdown-menu>

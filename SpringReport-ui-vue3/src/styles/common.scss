@@ -34,7 +34,11 @@
     }
   
     &::-webkit-scrollbar-thumb:hover {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: #a8a8a8;
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background-color: #787878;
     }
   
     &::-webkit-scrollbar-track {
@@ -124,22 +128,23 @@ html {
 }
 
 .el-menu-item:hover{
-  background: #f0fcf9 !important;
-  border-radius: 3px !important;
-  color: #17b794 !important;
+  background: $supx-color-primary-light !important;
+  border-radius: 4px !important;
+  color: $supx-color-primary !important;
 }
 /* 更改左侧侧边栏 */
 .el-sub-menu.is-active.is-opened .el-sub-menu__title {
-  color: #17b794 !important;
+  color: $supx-color-primary !important;
 }
 
 
 .el-sub-menu.is-active.is-opened .el-sub-menu__title i {
-  color: #17b794 !important;
+  color: $supx-color-primary !important;
 }
 .el-menu-item.is-active {
-  background: #f0fcf9 !important;
-  border-radius: 3px !important;
+  background: $supx-color-primary-light !important;
+  border-radius: 4px !important;
+  color: $supx-color-primary !important;
 }
 /* 更改公共组件table样式 */
 .ces-table-page {
@@ -176,14 +181,14 @@ html {
 
 /* 更改树节点的状态 */
 .el-tree-node__content:hover {
-  background: #f0fcf9 !important;
-  border-radius: 3px !important;
-  color: #17b794 !important;
+  background: $supx-color-primary-light !important;
+  border-radius: 4px !important;
+  color: $supx-color-primary !important;
 }
 .el-tree-node.is-current > .el-tree-node__content {
-  background: #f0fcf9 !important;
-  border-radius: 3px !important;
-  color: #17b794 !important;
+  background: $supx-color-primary-light !important;
+  border-radius: 4px !important;
+  color: $supx-color-primary !important;
 }
 .el-tree-node__expand-icon {
   color: rgba(0, 0, 0, 0.6) !important;
@@ -199,19 +204,27 @@ html {
   border-radius: 4px !important;
   padding: 0 !important;
   .el-dialog__header {
-    padding: 12px 16px !important;
+    padding: 0 16px !important;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background: $supx-header-gradient;
+    margin-right: 0;
     .el-dialog__title {
-      color: rgba(0, 0, 0, 0.85);
+      color: #fff;
       font-family: "PingFang SC";
       font-size: 16px !important;
       font-style: normal;
-      line-height: 24px; /* 150% */
+      line-height: 40px;
       font-weight: 600;
     }
     .el-dialog__close  {
-      color: #646a73;
+      color: #fff;
       font-size: 18px !important;
       font-weight: bold;
+      &:hover {
+        color: rgba(255, 255, 255, 0.85);
+      }
     }
   }
   .el-dialog__body {

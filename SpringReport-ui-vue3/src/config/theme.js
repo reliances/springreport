@@ -7,8 +7,8 @@
  * @description 主题配置 menuBgColor: 菜单背景色 primary: 主题色
  */
 const themeOptions = {
-  theme1: { menuBgColor: '#ffffff', primary: '#7e9cff' },
-  theme2: { menuBgColor: '#293246', primary: '#7e9cff' },
+  theme1: { menuBgColor: '#ffffff', primary: '#2381ff' },
+  theme2: { menuBgColor: '#293246', primary: '#2381ff' },
   theme3: { menuBgColor: '#ffffff', primary: '#08a17e' },
   theme4: { menuBgColor: '#293246', primary: '#08a17e' },
   theme5: { menuBgColor: '#ffffff', primary: '#f45555' },
@@ -20,7 +20,7 @@ export const themeConfig = {
   // 主题 默认配置theme1
   // 注意⚠️ ：修改默认主题时，记得同步修改 element-variables.scss
   // 文件中的 $base-color-primary 默认值，否则不生效！！！
-  theme: 'theme2',
+  theme: 'theme1',
   // 主题配置
   themeOptions,
   // 是否固定头部

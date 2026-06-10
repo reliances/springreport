@@ -90,7 +90,7 @@
             <div v-if="item.type === 'dropdown'">
               <el-dropdown size="small" class="table-dropdown">
                 <div class="more-btn df-c-c">
-                  <icon-more-one fill="#17b794" size="20" />
+                  <icon-more-one fill="#2381ff" size="20" />
                 </div>
                 <template #dropdown>
                   <el-dropdown-menu>
