@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891cdd1a-56a0-4af8-a994-760a0aea5122" name="更改" comment="调整名称." />
+    <list default="true" id="891cdd1a-56a0-4af8-a994-760a0aea5122" name="更改" comment="修改页面样式,蓝色底色">
+      <change afterPath="$PROJECT_DIR$/src/views/reportsnapshot/ReportSnapshot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/reportsnapshot/ReportSnapshot.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/reportsnapshot/snapshotPreview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/reportsnapshot/snapshotPreview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/user-circle.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/user-circle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/wx.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/zfb.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/luckyreport/luckyReportDesign.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/luckyreport/luckyReportDesign.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/luckyreport/luckyReportDesign.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/luckyreport/luckyReportDesign.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,21 +29,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "reliances"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;reliances&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/reliances/springreport.git",
-    "accountId": "d2ad08f6-80de-4c0d-8021-0d6084e8a516"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/reliances/springreport.git&quot;,
+    &quot;accountId&quot;: &quot;d2ad08f6-80de-4c0d-8021-0d6084e8a516&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3Evt1SwURgYNXKpCEVfxTsbEnsY" />
   <component name="ProjectViewState">
     <option name="flattenModules" value="true" />
@@ -44,7 +60,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/mumu/Documents/ReportAllFiles/springreport/SpringReport-ui-vue3",
+    "last_opened_file_path": "/Users/mumu/Documents/ReportAllFiles/springreport/SpringReport-ui-vue3/src/components",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
@@ -57,6 +73,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/views" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,7 +97,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1781070655971</updated>
-      <workItem from="1781070657360" duration="1732000" />
+      <workItem from="1781070657360" duration="13848000" />
+      <workItem from="1781156141743" duration="782000" />
+      <workItem from="1781158010100" duration="7990000" />
     </task>
     <task id="LOCAL-00001" summary="调整名称.">
       <option name="closed" value="true" />
@@ -85,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781072111036</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改页面样式,蓝色底色">
+      <option name="closed" value="true" />
+      <created>1781076963378</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1781076963378</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +125,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="调整名称." />
-    <option name="LAST_COMMIT_MESSAGE" value="调整名称." />
+    <MESSAGE value="修改页面样式,蓝色底色" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改页面样式,蓝色底色" />
   </component>
 </project>

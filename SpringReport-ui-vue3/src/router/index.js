@@ -160,22 +160,22 @@ export const constantRoutes = [
   //     title: 'doc预览',
   //   },
   // },
-  // {
-  //   path: '/multiscreenView',
-  //   name: 'multiscreenView',
-  //   component: () => import('@/views/multiscreen/multiscreenview.vue'),
-  //   meta: {
-  //     title: '多大屏查看'
-  //   }
-  // },
-  // {
-  //   path: '/viewSnapshot',
-  //   name: 'viewSnapshot',
-  //   component: () => import('@/views/reportsnapshot/snapshotPreview.vue'),
-  //   meta: {
-  //     title: '查看快照',
-  //   },
-  // },
+  {
+    path: '/multiscreenView',
+    name: 'multiscreenView',
+    component: () => import('@/views/multiscreen/multiscreenview.vue'),
+    meta: {
+      title: '多大屏查看'
+    }
+  },
+  {
+    path: '/viewSnapshot',
+    name: 'viewSnapshot',
+    component: () => import('@/views/reportsnapshot/snapshotPreview.vue'),
+    meta: {
+      title: '查看快照',
+    },
+  },
   {
     path: '/',
     component: Layout,
@@ -414,22 +414,22 @@ export const constantRoutes = [
       //     title: "Word报表(onlyoffice)",
       //   },
       // },
-      // {
-      //   path: '/multiscreen',
-      //   name: 'multiscreen',
-      //   component: () => import('@/views/multiscreen/MultiScreen.vue'),
-      //   meta: {
-      //     title: '多大屏管理'
-      //   }
-      // },
-      // {
-      //   path: '/reportSnapshot',
-      //   name: 'reportSnapshot',
-      //   component: () => import('@/views/reportsnapshot/ReportSnapshot.vue'),
-      //   meta: {
-      //     title: '快照管理',
-      //   },
-      // },
+      {
+        path: '/multiscreen',
+        name: 'multiscreen',
+        component: () => import('@/views/multiscreen/MultiScreen.vue'),
+        meta: {
+          title: '多大屏管理'
+        }
+      },
+      {
+        path: '/reportSnapshot',
+        name: 'reportSnapshot',
+        component: () => import('@/views/reportsnapshot/ReportSnapshot.vue'),
+        meta: {
+          title: '快照管理',
+        },
+      },
     ],
   },
   {

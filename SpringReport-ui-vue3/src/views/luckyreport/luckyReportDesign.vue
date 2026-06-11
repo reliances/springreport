@@ -904,7 +904,7 @@
                   </el-collapse-item>
                 </el-collapse>
               </el-collapse-item>
-              
+
               <el-collapse-item title="填报配置" name="fillSettings" v-if="tplType != 1">
                 <!-- <el-form-item
                   label="打印/导出隐藏列"
@@ -4554,6 +4554,7 @@
     </el-drawer>
     <vchart :show="vchartShow" @closeModal="closeAddChartModal()"></vchart>
     <textarea id="clipboradInput" value="" style="opacity: 0; position: absolute" />
+    <aisql :drawer="showAISql" :tables="dataSourceTables" :datasourceId="sqlForm.datasourceId" @closeAISql="closeAISql"></aisql>
   </div>
 </template>
 

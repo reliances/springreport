@@ -10,11 +10,13 @@ import { ElMessage, ElMessageBox } from 'element-plus';
 import md5 from 'js-md5';
 import Axios from 'axios';
 import vchartsetting from '@/components/vchart/vchartsetting.vue';
-import headerReportForm from '../../components/reportForm/headerReportForm.vue'
+import headerReportForm from '../../components/reportForm/headerReportForm.vue';
+import aisql from '../../components/aisql/aisql.vue'
 export default {
   components: {
     vchartsetting,
-    headerReportForm
+    headerReportForm,
+    aisql
   },
   data() {
     return {
@@ -3481,20 +3483,60 @@ export default {
         });
     },
     showSnapshotDialog(){
-      alert("该部分是付费插件功能，如需要请联系作者！")
+      ElMessageBox.prompt('', '请输入快照名称', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        inputType: 'text',
+        inputValidator: (value) => { // 点击按钮时，对文本框里面的值进行验证
+          if (!value) {
+            return '请输入快照名称'
+          } else {
+            this.loading = false
+          }
+        }
+      }).then(({ value }) => {
+        this.saveSnapshot(value);
+      }).catch(() => {
+        this.loading = false
+      })
     },
     //保存快照
     saveSnapshot(value){
-       alert("该部分是付费插件功能，如需要请联系作者！")
+      let files = [];
+      this.loadingText = '快照数据保存中...'
+      this.loading = true
+      var luckysheetfiles = luckysheet.getLuckysheetfile()
+      for (let index = 0; index < luckysheetfiles.length; index++) {
+        var data = luckysheet.transToCellData(luckysheetfiles[index].data)
+        let file = JSON.parse(JSON.stringify(luckysheetfiles[index]))
+        file.data = null;
+        file.visibledatacolumn = null;
+        file.visibledatarow = null;
+        file.celldata = data
+        files.push(file)
+      }
+      let pressFile = pako.gzip(encodeURIComponent(JSON.stringify(files)), {to: "string"});
+      const obj = {
+        url: this.apis.reportSnapshot.saveSnapshotApi,
+        params: { pressFile:pressFile,name:value,tplId:this.currentTplId}
+      }
+      const headers = {}
+      var that = this
+      this.commonUtil.doPost(obj).then((response) => {
+        if (response.code == '200') {
+
+        }
+        that.loading = false
+      })
     },
     reportSnapshot(){
-       alert("该部分是付费插件功能，如需要请联系作者！")
+      this.$router.push({ name: 'reportSnapshot' })
     },
     showAiDialog(){
-      alert("该部分是付费插件功能，如需要请联系作者！")
+      this.showAISql = true;
     },
     closeAISql(){
-      alert("该部分是付费插件功能，如需要请联系作者！")
+      this.showAISql = false;
     }
   },
 };

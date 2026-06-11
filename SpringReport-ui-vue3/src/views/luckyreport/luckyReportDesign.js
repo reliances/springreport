@@ -50,12 +50,14 @@ import { ElMessage, ElMessageBox } from 'element-plus';
 import Axios from 'axios';
 import vchart from '@/components/vchart/vchart.vue';
 import vchartsetting from '@/components/vchart//vchartsetting.vue';
+import aisql from '../../components/aisql/aisql.vue';
 export default {
   components: {
     codemirror,
     draggable,
     vchart,
-    vchartsetting
+    vchartsetting,
+    aisql
   },
   data() {
     return {
@@ -70,7 +72,7 @@ export default {
       autoFillDialog:false,
       autoFillForm: {
         columnName: '', // 数据列
-        fillType: '',// 1 系统时间 2用户id 3用户名 4商户号 
+        fillType: '',// 1 系统时间 2用户id 3用户名 4商户号
         fillValue:'',//填充值
         fillStrategy:'',//1 插入 2更新 3插入更新
       },
@@ -1844,7 +1846,7 @@ export default {
         const element = this.dataSource[index];
         if (this.sqlForm.datasourceId == element.datasourceId) {
           if(!isEdit){
-            this.sqlColumnTableData.tableData = []  
+            this.sqlColumnTableData.tableData = []
           }
           if (element.type == '4') {
             this.datasourceType = '2';
@@ -4494,7 +4496,7 @@ export default {
               }else{
                 obj[k] = value;
               }
-              
+
               if (k == 'cellExtend') {
                 if (obj.cellExtend == 4) {
                   obj.dataFrom = 3;
@@ -5214,7 +5216,7 @@ export default {
       var that = this;
       this.commonUtil.doPost(obj).then((response) => {
         if (response.code == '200') {
-          
+
           that.sheetRangeAuth = response.responseData;
           that.sheetAuth = that.sheetRangeAuth.sheetAuth;
           delete that.sheetRangeAuth["sheetAuth"];
@@ -6172,10 +6174,14 @@ export default {
       this.saveTplCache();
     },
     showAiDialog(){
-      alert("该部分是付费插件功能，如需要请联系作者！")
+      if(this.sqlForm.datasourceId){
+        this.showAISql = true;
+      }else{
+        this.commonUtil.showMessage({ message: this.commonUtil.getMessageFromList('error.selectdatasource'), type: this.commonConstants.messageType.error })
+      }
     },
     closeAISql(){
-      alert("该部分是付费插件功能，如需要请联系作者！")
+      this.showAISql = false;
     },
     changeSheetLoop(){
       var sheetIndex = luckysheet.getSheet().index
@@ -6188,7 +6194,7 @@ export default {
         this.sheetLoop[sheetIndex].loopSettings = null;
         this.$forceUpdate();
       }
-      
+
     },
     addSheetLoop(){
       this.sheetLoopVisiable = true
@@ -6339,6 +6345,6 @@ export default {
         this.authTitle = "为工作表【"+sheetName+"】添加保护权限";
         this.addAuthForm.authType = "2"
         this.addAuthVisiable = true;
-      } 
+      }
   },
 };

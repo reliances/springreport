@@ -299,7 +299,7 @@
           prop="cellContent"
           v-if="cellConfig.valueType == '4'"
           :rules="filter_rules('选择项', rules)"
-          
+
         >
           <el-select placeholder="请选择" size="default" v-model="editForm.cellContent" style="width: 400px" filterable clearable>
             <el-option
@@ -382,6 +382,7 @@
       value=""
       style="opacity: 0; position: absolute"
     />
+    <aisql :drawer="showAISql" :type="'2'" :title="'AI智能数据分析'" @closeAISql="closeAISql"></aisql>
   </el-scrollbar>
 </template>
 <script src="./luckyReportPreview.js"></script>
@@ -571,7 +572,7 @@
   position:static !important;
   width:36% !important;
   float:right !important;
- 
+
 }
 
 :deep(.handle-drawer){
