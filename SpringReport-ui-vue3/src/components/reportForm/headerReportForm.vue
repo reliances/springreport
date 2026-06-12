@@ -781,31 +781,31 @@ export default {
   margin-left: 10px;
 }
 
-::v-deep .el-button--primary {
+:deep(.el-button--primary){
   color: #ffffff;
   background-color: $--color-primary;
   border-color: $--color-primary;
 }
-::v-deep .el-form-item {
+:deep(.el-form-item){
   margin-bottom: 10px !important;
 }
-::v-deep .el-form-item__error {
+:deep(.el-form-item__error){
   line-height: 0 !important;
   padding-top: 2px !important;
 }
-::v-deep .el-tabs__content{
+:deep(.el-tabs__content){
   padding: 0 10px;
 }
-::v-deep .el-tabs__header{
+:deep(.el-tabs__header){
   margin-bottom: 24px;
 }
-::v-deep .el-tabs__item{
+:deep(.el-tabs__item){
   height:46px;
 }
-::v-deep .el-tabs__nav-wrap::after{
+:deep(.el-tabs__nav-wrap::after){
   content: unset !important;
 }
-::v-deep .el-tabs__active-bar{
+:deep(.el-tabs__active-bar){
   height: 3px;
   // max-width: 80px;
   border-radius: 1px;

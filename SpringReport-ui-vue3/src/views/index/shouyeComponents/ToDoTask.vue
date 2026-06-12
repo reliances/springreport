@@ -153,20 +153,20 @@
   };
 </script>
 <style lang="scss" scoped>
-  ::v-deep .el-pager li {
+  :deep(.el-pager li){
     color: #666;
     font-weight: normal;
     font-size: 14px !important;
     border: 1px solid transparent;
   }
-  ::v-deep .el-pager li.active {
+  :deep(.el-pager li.active){
     color: $base-color-primary;
     border-radius: 3px;
     font-size: 14px;
     border: 1px solid $base-color-primary;
   }
-  ::v-deep .el-pagination--small .btn-prev,
-  ::v-deep .el-pagination--small .btn-next {
+  :deep(.el-pagination--small .btn-prev),
+  :deep(.el-pagination--small .btn-next){
     height: 24px;
     line-height: 24px;
   }

@@ -202,13 +202,13 @@
   .el-form-item {
     margin-bottom: 2px !important;
   }
-  ::v-deep .el-form-item__label-wrap {
+  :deep(.el-form-item__label-wrap){
     margin-left: 0px !important;
   }
-  ::v-deep .customLabel {
+  :deep(.customLabel){
     font-weight: bold;
   }
-  ::v-deep .customLabel .el-form-item__label {
+  :deep(.customLabel .el-form-item__label){
     color: #15a585 !important;
   }
 </style>

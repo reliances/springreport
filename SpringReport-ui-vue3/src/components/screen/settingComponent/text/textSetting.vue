@@ -195,7 +195,7 @@
   .el-form-item {
     margin-bottom: 2px !important;
   }
-  ::v-deep .el-form-item__label-wrap {
+  :deep(.el-form-item__label-wrap){
     margin-left: 0px !important;
   }
 </style>

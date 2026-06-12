@@ -972,7 +972,7 @@
     cursor: pointer;
   }
 
-  .el-tabs ::v-deep .el-tabs__content {
+  .el-tabs :deep(.el-tabs__content){
     padding-bottom: 15px;
     height: 95%;
     overflow-y: auto;
@@ -980,53 +980,53 @@
   }
 
   .el-menu-demo .el-menu-item,
-  .el-menu-demo .el-submenu ::v-deep .el-submenu__title {
+  .el-menu-demo .el-submenu :deep(.el-submenu__title){
     font-size: 16px;
   }
 
   .el-menu-demo .el-menu-item i,
-  .el-menu-demo .el-submenu ::v-deep .el-submenu__title i {
+  .el-menu-demo .el-submenu :deep(.el-submenu__title i){
     color: #b3b4b6;
   }
 
   .el-menu-demo .el-menu-item.is-active,
-  .el-menu-demo .el-submenu.is-active ::v-deep .el-submenu__title {
+  .el-menu-demo .el-submenu.is-active :deep(.el-submenu__title){
     background-color: #2f3544 !important;
     border-bottom-color: #2f3544 !important;
   }
 
   .el-menu-demo .el-menu-item.is-active i,
-  .el-menu-demo .el-submenu.is-active ::v-deep .el-submenu__title i {
+  .el-menu-demo .el-submenu.is-active :deep(.el-submenu__title i){
     color: white;
   }
 
-  .el-menu-demo .el-submenu ::v-deep .el-submenu__title .el-submenu__icon-arrow {
+  .el-menu-demo .el-submenu :deep(.el-submenu__title .el-submenu__icon-arrow){
     margin-top: 0px;
   }
 
-  .mytaba ::v-deep .el-tabs__header .el-tabs__item.is-active {
+  .mytaba :deep(.el-tabs__header .el-tabs__item.is-active){
     color: white;
   }
 
-  .mytaba ::v-deep .el-tabs__nav-wrap::after {
+  .mytaba :deep(.el-tabs__nav-wrap::after){
     background-color: #3a3f48;
   }
 
-  .mytaba ::v-deep .el-tabs__header .el-tabs__active-bar {
+  .mytaba :deep(.el-tabs__header .el-tabs__active-bar){
     background-color: white;
   }
 
-  .mytaba ::v-deep .el-tabs__header {
+  .mytaba :deep(.el-tabs__header){
     background-color: #2d2f38;
     padding: 0 10px;
     margin-bottom: 0;
   }
 
-  .mytaba ::v-deep .el-tabs__item {
+  .mytaba :deep(.el-tabs__item){
     font-size: 14px;
   }
 
-  .mycarda.el-card ::v-deep .el-card__body {
+  .mycarda.el-card :deep(.el-card__body){
     padding: 8px;
   }
 
@@ -1066,28 +1066,28 @@
     font-size: 14px;
     padding: 10px;
   }
-  .infobox ::v-deep .el-form-item__label {
+  .infobox :deep(.el-form-item__label){
     color: #c5c5c5;
   }
-  .infobox ::v-deep .el-collapse {
+  .infobox :deep(.el-collapse){
     border-top: 1px solid #393b4a;
     border-bottom: 1px solid #393b4a;
   }
-  .infobox ::v-deep .el-collapse .el-collapse-item__header {
+  .infobox :deep(.el-collapse .el-collapse-item__header){
     background-color: #2d2f38;
     color: #fff;
     padding-left: 10px;
     border-bottom: 1px solid #2d2f38;
   }
-  .infobox ::v-deep .el-collapse-item__wrap {
+  .infobox :deep(.el-collapse-item__wrap){
     background-color: #22242b;
     padding: 20px 16px;
   }
-  .infobox ::v-deep .el-collapse-item__content {
+  .infobox :deep(.el-collapse-item__content){
     padding-bottom: 0;
   }
 
-  ::v-deep .vue-ruler-content {
+  :deep(.vue-ruler-content){
     width: 100% !important;
     height: 100% !important;
   }

@@ -285,11 +285,11 @@
   @import '@/element-variables.scss';
 
   .add-dataset-dialog {
-    ::v-deep .el-radio-button:first-child .el-radio-button__inner {
+    :deep(.el-radio-button:first-child .el-radio-button__inner){
       border-radius: 10px 0 0 10px;
     }
 
-    ::v-deep .el-radio-button:last-child .el-radio-button__inner {
+    :deep(.el-radio-button:last-child .el-radio-button__inner){
       border-radius: 0 10px 10px 0;
     }
 
@@ -344,7 +344,7 @@
               color: #fff;
               background: $base-color-primary;
 
-              ::v-deep .el-icon-circle-plus-outline {
+              :deep(.el-icon-circle-plus-outline){
                 color: #fff;
               }
             }

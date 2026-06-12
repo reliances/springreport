@@ -1964,7 +1964,7 @@
       height: calc(100% - 170px);
       overflow-y: auto;
 
-      ::v-deep .el-collapse-item__header {
+      :deep(.el-collapse-item__header){
         height: 18px;
         line-height: 18px;
         background-color: transparent;
@@ -1973,11 +1973,11 @@
         margin-bottom: 8px;
       }
 
-      ::v-deep .el-collapse-item__wrap {
+      :deep(.el-collapse-item__wrap){
         background-color: transparent;
       }
 
-      ::v-deep .el-collapse-item__content {
+      :deep(.el-collapse-item__content){
         padding-bottom: 0;
         background-color: transparent;
       }
@@ -2139,11 +2139,11 @@
   }
 
   .add-dataset-dialog {
-    ::v-deep .el-radio-button:first-child .el-radio-button__inner {
+    :deep(.el-radio-button:first-child .el-radio-button__inner){
       border-radius: 10px 0 0 10px !important;
     }
 
-    ::v-deep .el-radio-button:last-child .el-radio-button__inner {
+    :deep(.el-radio-button:last-child .el-radio-button__inner){
       border-radius: 0 10px 10px 0 !important;
     }
 
@@ -2286,7 +2286,7 @@
   }
 
   .group-dialog {
-    ::v-deep .el-table th.el-table__cell {
+    :deep(.el-table th.el-table__cell){
       background-color: #fafafa;
       color: rgba(0, 0, 0, 0.85);
     }
@@ -2346,7 +2346,7 @@
       .search {
         margin-bottom: 10px;
 
-        ::v-deep .el-input__wrapper {
+        :deep(.el-input__wrapper){
           height: 36px;
           line-height: 36px;
           border-radius: 6px;
@@ -2354,7 +2354,7 @@
           border-color: rgba(0, 0, 0, 0.1);
         }
 
-        ::v-deep .el-input__icon {
+        :deep(.el-input__icon){
           line-height: 36px;
         }
       }
@@ -2456,7 +2456,7 @@
     background-repeat: no-repeat;
   }
 
-  ::v-deep .el-collapse-item__arrow {
+  :deep(.el-collapse-item__arrow){
     margin-right: 0;
   }
 
@@ -2666,7 +2666,7 @@
     margin-right: 12px;
   }
 
-  ::v-deep .sub-collapse {
+  :deep(.sub-collapse){
     margin-top: 6px;
     border-bottom: 0;
 
@@ -2702,7 +2702,7 @@
     background: #ffffff;
     overflow: auto;
 
-    ::v-deep .el-collapse-item {
+    :deep(.el-collapse-item){
       .el-collapse-item__header {
         position: relative;
         padding: 0 12px;
@@ -2727,30 +2727,30 @@
     .df-form-item {
       display: flex;
 
-      ::v-deep .el-form-item__label {
+      :deep(.el-form-item__label){
         margin-right: 12px;
         margin-bottom: 0;
       }
     }
 
-    ::v-deep .el-form-item {
+    :deep(.el-form-item){
       margin-bottom: 8px;
     }
 
-    ::v-deep .el-form--label-top .el-form-item__label {
+    :deep(.el-form--label-top .el-form-item__label){
       padding-bottom: 0;
       line-height: 32px;
     }
   }
 
-  ::v-deep .demo-form-inline.el-form--label-top .el-form-item__label {
+  :deep(.demo-form-inline.el-form--label-top .el-form-item__label){
     padding-bottom: 0;
     line-height: 32px;
   }
 
-  ::v-deep .demo-form-inline .el-select,
-  ::v-deep .demo-form-inline .el-textarea,
-  ::v-deep .demo-form-inline .el-input {
+  :deep(.demo-form-inline .el-select),
+  :deep(.demo-form-inline .el-textarea),
+  :deep(.demo-form-inline .el-input){
     width: 100% !important;
   }
 
@@ -2758,7 +2758,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    ::v-deep .el-form-item {
+    :deep(.el-form-item){
       width: 20%;
       display: flex;
       box-sizing: border-box;
@@ -2862,22 +2862,22 @@
     }
   }
 
-  ::v-deep .el-avatar {
+  :deep(.el-avatar){
     background: #17b794 !important;
   }
 
-  ::v-deep .el-dialog__wrapper {
+  :deep(.el-dialog__wrapper){
     overflow: hidden;
     //    z-index: 2005 !important;
     pointer-events: none !important;
   }
 
-  ::v-deep .el-dialog {
+  :deep(.el-dialog){
     pointer-events: auto !important;
     /* background:#d9ebf0 !important; */
   }
 
-  ::v-deep .authdialog {
+  :deep(.authdialog){
     margin-top: 50px !important;
     margin-left: 0px !important;
     flex-direction: column !important;
@@ -2890,23 +2890,23 @@
     /* background:#d9ebf0 !important; */
   }
 
-  .authdialog ::v-deep .el-dialog__body {
+  .authdialog :deep(.el-dialog__body){
     height: calc(100% - 90px) !important;
     overflow: auto;
   }
 
-  .authdialog ::v-deep .el-dialog-div {
+  .authdialog :deep(.el-dialog-div){
     max-height: 60vh;
     overflow: auto;
     margin-left: 10px;
   }
 
-  .authdialog ::v-deep .el-dialog-div::-webkit-scrollbar {
+  .authdialog :deep(.el-dialog-div::-webkit-scrollbar){
     display: none;
     /*隐藏滚动条*/
   }
 
-  .authdialog ::v-deep .el-dialog__title {
+  .authdialog :deep(.el-dialog__title){
     font-weight: bold;
   }
 
@@ -2914,12 +2914,12 @@
     margin: 10px 0;
   }
 
-  ::v-deep .el-tabs__content .el-tab-pane {
+  :deep(.el-tabs__content .el-tab-pane){
     height: 600px;
     overflow: auto;
   }
 
-  ::v-deep .vue-codemirror .CodeMirror {
+  :deep(.vue-codemirror .CodeMirror){
     border: 1px solid #eee;
   }
 

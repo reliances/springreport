@@ -275,7 +275,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep .text {
+:deep(.text){
   // text-align: center;
   -webkit-background-clip: text;
   color: transparent;

@@ -65,11 +65,11 @@
       width: 580px;
       position: relative;
 
-      ::v-deep .el-input__wrapper {
+      :deep(.el-input__wrapper){
         box-shadow: none;
       }
 
-      ::v-deep .el-input__inner {
+      :deep(.el-input__inner){
         height: 36px;
         line-height: 36px;
         border-radius: 54px;
@@ -78,16 +78,16 @@
         padding-right: 100px;
       }
 
-      ::v-deep .el-input__prefix {
+      :deep(.el-input__prefix){
         position: absolute;
         left: 28px;
       }
 
-      ::v-deep .el-input__suffix {
+      :deep(.el-input__suffix){
         right: 100px;
       }
 
-      ::v-deep .el-input__icon {
+      :deep(.el-input__icon){
         line-height: 36px;
       }
 

@@ -284,7 +284,7 @@
       width: 100%;
       margin-right: 6px;
     }
-    ::v-deep .el-scrollbar__wrap {
+    :deep(.el-scrollbar__wrap){
       overflow-y: hidden;
     }
     .left {

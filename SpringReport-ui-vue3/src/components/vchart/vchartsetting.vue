@@ -970,7 +970,7 @@
     padding: 8px 10px;
   }
 
-  ::v-deep .el-collapse-item {
+  :deep(.el-collapse-item){
     .el-collapse-item__header {
       position: relative;
       padding: 0 12px;
@@ -996,28 +996,28 @@
     display: flex;
     margin-right: 0;
 
-    ::v-deep .el-form-item__label {
+    :deep(.el-form-item__label){
       // margin-right: 12px;
       flex-shrink: 0;
       width: 80px;
     }
 
-    ::v-deep .el-form-item__content {
+    :deep(.el-form-item__content){
       flex: 1;
     }
   }
 
   .cus-color-picker {
-    ::v-deep .el-input {
+    :deep(.el-input){
       width: 100% !important;
     }
   }
 
-  ::v-deep .el-form-item {
+  :deep(.el-form-item){
     margin-bottom: 8px;
   }
 
-  ::v-deep .el-form--label-top .el-form-item__label {
+  :deep(.el-form--label-top .el-form-item__label){
     padding-bottom: 0;
     line-height: 32px;
   }
@@ -1026,19 +1026,19 @@
     margin-bottom: 5px !important;
   }
 
-  ::v-deep .el-form-item__label-wrap {
+  :deep(.el-form-item__label-wrap){
     margin-left: 0px !important;
   }
 
-  ::v-deep .el-color-picker__trigger {
+  :deep(.el-color-picker__trigger){
     /* top:-12px */
   }
 
-  ::v-deep .customLabel {
+  :deep(.customLabel){
     font-weight: bold;
   }
 
-  ::v-deep .customLabel .el-form-item__label {
+  :deep(.customLabel .el-form-item__label){
     color: #15a585 !important;
   }
 

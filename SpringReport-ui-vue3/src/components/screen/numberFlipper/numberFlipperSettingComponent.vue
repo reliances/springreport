@@ -112,7 +112,7 @@ export default {
 </script>
 
 <style scoped>
-::v-deep .el-collapse-item__header {
+:deep(.el-collapse-item__header){
   border-top: 0px !important;
 }
 </style>
