@@ -117,8 +117,8 @@ export default {
           hideRow: true, // 隐藏选中行和显示选中行
           hideColumn: true, // 隐藏选中列和显示选中列
           matrix: false, // 矩阵操作选区
-          sort: false, // 排序选区
-          filter: false, // 筛选选区
+          sort: true, // 排序选区
+          filter: true, // 筛选选区
           chart: false, // 图表生成
           image: false, // 插入图片
           data: false, // 数据验证
@@ -1262,6 +1262,19 @@ export default {
             if (!allowEdit) {
               this.commonUtil.showMessage({ message: '该单元格不允许进行编辑。', type: 'error' })
               return false
+            }else{
+              let config = this.extraCustomCellConfigs[sheetIndex][orginCell.r + '_' + orginCell.c]
+              let editAuth = config.editAuth;
+              if(editAuth == '2'){
+                let localUserId = localStorage.getItem(this.commonConstants.sessionItem.userId)+"";
+                let editUsers = config.editUsers;
+                if((editUsers && editUsers.includes(localUserId))){
+
+                }else{
+                  this.commonUtil.showMessage({ message: '您没有编辑该单元格的权限！', type: 'error' })
+                  return false
+                }
+              }
             }
           }
         }
@@ -2996,6 +3009,19 @@ export default {
             if (!allowEdit) {
               this.commonUtil.showMessage({ message: '单元格不允许进行编辑。', type: 'error' })
               return false
+            }else{
+              let config = this.extraCustomCellConfigs[sheetIndex][orginCell.r + '_' + orginCell.c]
+              let editAuth = config.editAuth;
+              if(editAuth == '2'){
+                let localUserId = localStorage.getItem(this.commonConstants.sessionItem.userId)+"";
+                let editUsers = config.editUsers;
+                if((editUsers && editUsers.includes(localUserId))){
+
+                }else{
+                  this.commonUtil.showMessage({ message: '您没有编辑该单元格的权限！', type: 'error' })
+                  return false
+                }
+              }
             }
           }
         }
