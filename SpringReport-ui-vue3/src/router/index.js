@@ -279,7 +279,7 @@ export const constantRoutes = [
         name: 'sysMerchant',
         component: () => import('@/views/sysmerchant/SysMerchant.vue'),
         meta: {
-          title: '租户管理',
+          title: '机构管理',
           icon: 'icon-user-business',
         },
       },
@@ -324,7 +324,7 @@ export const constantRoutes = [
         name: 'onlineTpl',
         component: () => import('@/views/onlinetpl/OnlineTpl.vue'),
         meta: {
-          title: 'Excel协同文档',
+          title: '在线协同报表',
           icon: 'icon-excel',
         },
       },
@@ -333,7 +333,7 @@ export const constantRoutes = [
         name: 'reportTpl',
         component: () => import('@/views/reporttpl/ReportTpl.vue'),
         meta: {
-          title: 'Excel报表',
+          title: '普通报表',
           icon: 'icon-table',
         },
       },
@@ -360,7 +360,7 @@ export const constantRoutes = [
         name: 'docTpl',
         component: () => import('@/views/doctpl/DocTpl.vue'),
         meta: {
-          title: 'Word报表',
+          title: '文献文书报表',
           icon: 'icon-word',
         },
       },
@@ -369,7 +369,7 @@ export const constantRoutes = [
         name: 'screenTpl',
         component: () => import('@/views/screen/screentpl/ScreenTpl.vue'),
         meta: {
-          title: '大屏模板管理',
+          title: 'BI智能分析',
           icon: 'icon-word',
         },
       },
@@ -378,7 +378,7 @@ export const constantRoutes = [
         name: 'excelTemplate',
         component: () => import('@/views/exceltemplate/excelTemplate.vue'),
         meta: {
-          title: 'Excel模板市场',
+          title: '普通报表模板市场',
         },
       },
       {
@@ -386,7 +386,7 @@ export const constantRoutes = [
         name: 'wordTemplate',
         component: () => import('@/views/wordtemplate/wordTemplate.vue'),
         meta: {
-          title: 'Word模板市场',
+          title: '文献文书模板市场',
         },
       },
       {
@@ -394,7 +394,7 @@ export const constantRoutes = [
         name: 'screenTemplate',
         component: () => import('@/views/screentemplate/screenTemplate.vue'),
         meta: {
-          title: '大屏模板市场',
+          title: 'BI分析模板市场',
         },
       },
       // {
@@ -702,7 +702,7 @@ export const constantThirdPartyRoutes = [
     name: 'sysMerchant',
     component: () => import('@/views/sysmerchant/SysMerchant.vue'),
     meta: {
-      title: '租户管理',
+      title: '机构管理',
       icon: 'icon-user-business',
     },
   },
@@ -747,7 +747,7 @@ export const constantThirdPartyRoutes = [
     name: 'onlineTpl',
     component: () => import('@/views/onlinetpl/OnlineTpl.vue'),
     meta: {
-      title: 'Excel协同文档',
+      title: '在线协同报表',
       icon: 'icon-excel',
     },
   },
@@ -792,7 +792,7 @@ export const constantThirdPartyRoutes = [
     name: 'screenTpl',
     component: () => import('@/views/screen/screentpl/ScreenTpl.vue'),
     meta: {
-      title: '大屏模板管理',
+      title: 'BI智能分析',
       icon: 'icon-word',
     },
   },

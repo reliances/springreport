@@ -1,7 +1,7 @@
 <!--  -->
 <template>
   <div class="template-header df-c-b">
-    <div class="template-header-title"> 模板市场 </div>
+    <div class="template-header-title"> 模版中心 </div>
     <div class="template-header-search">
       <el-input v-model="searchValue" placeholder="输入关键字搜索模板" clearable>
         <template #prefix>
@@ -36,13 +36,11 @@
   };
 </script>
 <style lang="scss" scoped>
-  @import '@/element-variables.scss';
-
   .template-header {
     height: 64px;
-    padding: 0 16px;
-    background: #fff;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.05);
+    padding: 0 24px;
+    background: $supx-header-gradient;
+    box-shadow: 0px 2px 5px 0px rgba(35, 129, 255, 0.15);
     position: fixed;
     top: 0;
     left: 0;
@@ -50,14 +48,13 @@
     z-index: 10;
 
     .template-header-title {
-      color: rgba(0, 0, 0, 0.8);
+      color: #fff;
       text-align: center;
       font-family: 'PingFang SC';
       font-size: 20px;
       font-style: normal;
       font-weight: bold;
       line-height: 25.413px;
-      /* 127.065% */
       letter-spacing: 0.2px;
     }
 
@@ -65,42 +62,44 @@
       width: 580px;
       position: relative;
 
-      :deep(.el-input__wrapper){
+      :deep(.el-input__wrapper) {
         box-shadow: none;
+        background: #fff;
+        border-radius: 54px;
       }
 
-      :deep(.el-input__inner){
+      :deep(.el-input__inner) {
         height: 36px;
         line-height: 36px;
         border-radius: 54px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: none;
         padding-left: 42px;
         padding-right: 100px;
       }
 
-      :deep(.el-input__prefix){
+      :deep(.el-input__prefix) {
         position: absolute;
         left: 28px;
       }
 
-      :deep(.el-input__suffix){
+      :deep(.el-input__suffix) {
         right: 100px;
       }
 
-      :deep(.el-input__icon){
+      :deep(.el-input__icon) {
         line-height: 36px;
       }
 
       .search-btn {
         position: absolute;
-        right: 14px;
+        right: 4px;
         top: 4px;
         width: 70px;
         text-align: center;
-        height: 30px;
-        line-height: 30px;
+        height: 28px;
+        line-height: 28px;
         border-radius: 299px;
-        background: $--color-primary;
+        background: $supx-header-gradient;
         padding: 0 8px;
         color: #fff;
         font-family: 'PingFang SC';
@@ -108,10 +107,10 @@
         font-style: normal;
         font-weight: 400;
         cursor: pointer;
-        transition: all 0.3s;
+        transition: opacity 0.2s;
 
         &:hover {
-          opacity: 0.7;
+          opacity: 0.85;
         }
       }
     }

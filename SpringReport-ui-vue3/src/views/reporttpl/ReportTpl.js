@@ -47,7 +47,7 @@ export default {
         //表格工具栏按钮 start
         tableHandles: [
           {
-            label: '模板市场',
+            label: '模版中心',
             type: 'primary',
             position: 'right',
             iconClass: 'action-icon-template',

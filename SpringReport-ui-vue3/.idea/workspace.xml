@@ -4,22 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891cdd1a-56a0-4af8-a994-760a0aea5122" name="更改" comment="修改页面样式,蓝色底色">
-      <change afterPath="$PROJECT_DIR$/src/views/reportsnapshot/ReportSnapshot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/reportsnapshot/ReportSnapshot.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/reportsnapshot/snapshotPreview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/reportsnapshot/snapshotPreview.vue" afterDir="false" />
+    <list default="true" id="891cdd1a-56a0-4af8-a994-760a0aea5122" name="更改" comment="修改启动 警告信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/img/user-circle.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/user-circle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/wx.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/zfb.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FullScreen/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FullScreen/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/searchform/searchForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/searchform/searchForm.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/luckyreport/luckyReportDesign.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/luckyreport/luckyReportDesign.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/luckyreport/luckyReportDesign.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/luckyreport/luckyReportDesign.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/index/shouyeComponents/Statement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index/shouyeComponents/Statement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/reporttpl/ReportTpl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/reporttpl/ReportTpl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/templateStore/components/TemHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/templateStore/components/TemHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/templateStore/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/templateStore/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,27 +45,27 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/mumu/Documents/ReportAllFiles/springreport/SpringReport-ui-vue3/src/components",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "/Users/mumu/Documents/ReportAllFiles/springreport/SpringReport-ui-vue3/node_modules/stylelint",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "/Users/mumu/Documents/ReportAllFiles/springreport/SpringReport-ui-vue3/node_modules/prettier",
-    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mumu/Documents/ReportAllFiles/springreport/SpringReport-ui-vue3/src/components&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;/Users/mumu/Documents/ReportAllFiles/springreport/SpringReport-ui-vue3/node_modules/stylelint&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/mumu/Documents/ReportAllFiles/springreport/SpringReport-ui-vue3/node_modules/prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components" />
@@ -82,11 +75,12 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.29188.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.29188.11" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.19416.19" />
+        <option value="bundled-python-sdk-337b0a7a993a-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.19416.19" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
@@ -99,7 +93,10 @@
       <updated>1781070655971</updated>
       <workItem from="1781070657360" duration="13848000" />
       <workItem from="1781156141743" duration="782000" />
-      <workItem from="1781158010100" duration="7990000" />
+      <workItem from="1781158010100" duration="12685000" />
+      <workItem from="1781243288542" duration="5633000" />
+      <workItem from="1782454325871" duration="1619000" />
+      <workItem from="1782695890604" duration="69000" />
     </task>
     <task id="LOCAL-00001" summary="调整名称.">
       <option name="closed" value="true" />
@@ -117,7 +114,23 @@
       <option name="project" value="LOCAL" />
       <updated>1781076963378</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="升级ai, 快照等功能.">
+      <option name="closed" value="true" />
+      <created>1781169252070</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1781169252070</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修改启动 警告信息">
+      <option name="closed" value="true" />
+      <created>1781231830020</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1781231830020</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +139,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="调整名称." />
     <MESSAGE value="修改页面样式,蓝色底色" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改页面样式,蓝色底色" />
+    <MESSAGE value="升级ai, 快照等功能." />
+    <MESSAGE value="修改启动 警告信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改启动 警告信息" />
   </component>
 </project>

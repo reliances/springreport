@@ -12,7 +12,7 @@
   <div class="line" />
   <div class="tem df-c" @click="goTemStore" >
     <img src="@/assets/img/template/tem.png" style="width: 24px; height: 24px; display: block" />
-    <div class="tem-name" style="color: #ffffff">模板市场</div>
+    <div class="tem-name" style="color: #ffffff">模版中心</div>
   </div>
   <div class="line" />
   <div v-if="state.isSystemMerchant == 1" class="df-c">

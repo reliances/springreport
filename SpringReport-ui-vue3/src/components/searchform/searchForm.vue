@@ -38,7 +38,7 @@
               src="@/assets/img/template/tem.png"
               style="width: 24px; height: 24px; display: block"
             />
-            <div class="tem-name">模板市场</div>
+            <div class="tem-name">模版中心</div>
           </div>
           <el-button
             v-else

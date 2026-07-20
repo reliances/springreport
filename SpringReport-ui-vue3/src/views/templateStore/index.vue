@@ -99,17 +99,17 @@
         // 模板类型
         temTypeList: [
           {
-            label: 'Excel模板 ',
+            label: '普通报表模板 ',
             value: 'excel',
             img: 'excel.png',
           },
           {
-            label: 'Word模板',
+            label: '文献文书模板',
             value: 'word',
             img: 'word.png',
           },
           {
-            label: '大屏模板',
+            label: 'BI分析模板',
             value: 'screen',
             img: 'screen.png',
           },
@@ -268,12 +268,11 @@
   };
 </script>
 <style lang="scss" scoped>
-  @import '@/element-variables.scss';
-
   .template-store {
     padding-top: 88px;
     overflow-y: auto;
     height: 100%;
+    background: #f5f6f7;
 
     .template-type {
       margin-bottom: 24px;
@@ -286,10 +285,10 @@
         transition: all 0.3s;
 
         &:hover {
-          background: rgba(23, 183, 148, 0.1);
+          background: $supx-color-primary-light;
 
           .name {
-            color: $--color-primary;
+            color: $supx-color-primary;
           }
         }
 
@@ -310,16 +309,15 @@
           font-style: normal;
           font-weight: bold;
           line-height: 26px;
-          /* 144.444% */
           letter-spacing: 2px;
         }
       }
 
       .template-item-active {
-        background: rgba(23, 183, 148, 0.1);
+        background: $supx-color-primary-light;
 
         .name {
-          color: $--color-primary;
+          color: $supx-color-primary;
         }
       }
     }
@@ -354,19 +352,19 @@
         cursor: pointer;
 
         &:hover {
-          background: $--color-primary;
+          background: $supx-color-primary;
           color: #fff;
         }
       }
 
       .sub-item-active {
-        background: $--color-primary;
+        background: $supx-color-primary;
         color: #fff;
       }
     }
 
     .tem-item {
-      box-shadow: 0px 0px 20px 0px rgba(7, 49, 40, 0.2);
+      box-shadow: 0px 0px 20px 0px rgba(35, 129, 255, 0.12);
       border-radius: 8px;
 
       .tem-item-img {
@@ -434,9 +432,9 @@
           line-height: 34px;
           text-align: center;
           border-radius: 6px;
-          border: 1px solid $--color-primary;
+          border: 1px solid $supx-color-primary;
           background: #fff;
-          color: $--color-primary;
+          color: $supx-color-primary;
           font-size: 14px;
           font-style: normal;
           font-weight: bold;
@@ -445,7 +443,8 @@
 
           &:hover {
             color: #fff;
-            background-color: $--color-primary;
+            background: $supx-header-gradient;
+            border-color: transparent;
           }
         }
       }
@@ -453,6 +452,14 @@
 
     .ces-pagination {
       padding: 16px 0;
+
+      :deep(.el-pagination.is-background .el-pager li.is-active) {
+        background-color: $supx-color-primary;
+      }
+
+      :deep(.el-pagination.is-background .el-pager li:hover) {
+        color: $supx-color-primary;
+      }
     }
   }
 </style>

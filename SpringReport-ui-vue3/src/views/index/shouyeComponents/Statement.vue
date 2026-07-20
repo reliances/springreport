@@ -26,13 +26,13 @@
       return {
         statistics: [
           {
-            title: 'Excel报表(个)',
+            title: '普通报表(个)',
             num: 0,
             icon: new URL('../../../assets/img/homePage/excel.png', import.meta.url).href,
             path: 'reportTpl',
           },
           {
-            title: 'Word报表(个)',
+            title: '文献文书(个)',
             num: 0,
             icon: new URL('../../../assets/img/homePage/word.png', import.meta.url).href,
             path: 'docTpl',
@@ -44,7 +44,7 @@
             path: 'onlineTpl',
           },
           {
-            title: '大屏模板(个)',
+            title: 'BI分析(个)',
             num: 0,
             icon: new URL('../../../assets/img/homePage/screen.png', import.meta.url).href,
             path: 'screenTpl',
