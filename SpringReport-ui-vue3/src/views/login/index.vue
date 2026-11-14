@@ -1,6 +1,5 @@
 <template>
   <div class="login-wrap">
-    <!--    <h1 class="title">上海超星医疗集团医院</h1>-->
     <div class="login-card">
       <div class="df-c">
         <img src="@/assets/img/logoWithName.png" style="width: auto; height: 48px" />
@@ -19,7 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('@/assets/login_bg.png') no-repeat center;
+  background: url('@/assets/login_bg.jpg') no-repeat center;
   background-size: cover;
   position: relative;
 

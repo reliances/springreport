@@ -12,7 +12,7 @@ const api = {};
 api.login = {
   loginApi: '/api/login/doLogin',
   getMerchantModeApi: '/api/login/getMerchantMode',
-  getMerchantListApi: '/api/sysMerchant/getMerchantList',
+  getMerchantListApi: '/api/login/getMerchantList', // 登录页公开接口，无需 token
   getUserInfoByTokenApi: '/api/login/getUserInfoByToken',
 };
 
@@ -366,6 +366,7 @@ api.docTpl = {
 api.common = {
   uploadFileApi: '/api/common/uploadFile',
   parseXlsxByUrlApi: '/api/common/parseXlsxByUrl',
+  getPrintConfigApi: '/api/common/getPrintConfig',
 };
 
 api.onlyoffice = {

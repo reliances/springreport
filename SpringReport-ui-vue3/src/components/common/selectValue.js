@@ -1010,4 +1010,9 @@ selectUtil.dataType = [
   { value: '1', label: '自定义' },
   { value: '2', label: 'SQL语句' }
 ]
+selectUtil.tplPrintMode = [
+  { value: 1, label: '浏览器打印' },
+  { value: 2, label: 'Lodop预览打印' },
+  { value: 3, label: 'Lodop静默打印' },
+]
 export default selectUtil;

@@ -6,9 +6,23 @@
     class="login-form"
     label-position="top"
     label-width="100px"
+    :validate-on-rule-change="false"
   >
     <el-form-item prop="merchantNo" label="商户号" v-if="merchantMode == 1">
-      <el-input placeholder="商户号" v-model="ruleForm.merchantNo" size="large"></el-input>
+      <el-select
+        v-model="ruleForm.merchantNo"
+        placeholder="请选择商户号"
+        size="large"
+        style="width: 100%"
+        filterable
+      >
+        <el-option
+          v-for="item in merchants"
+          :key="item.merchantNo"
+          :label="item.merchantName ? `${item.merchantName}（${item.merchantNo}）` : item.merchantNo"
+          :value="item.merchantNo"
+        />
+      </el-select>
     </el-form-item>
     <el-form-item prop="username" label="账号">
       <el-input placeholder="账号" v-model="ruleForm.username" size="large"></el-input>
@@ -36,7 +50,7 @@
 </template>
 
 <script>
-  import { reactive, toRefs, ref, unref, watch, onMounted } from 'vue';
+  import { reactive, toRefs, ref, unref, watch, onMounted, nextTick } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
   import commonUtil from '../../../components/common/common';
@@ -49,10 +63,11 @@
       const validateForm = ref(null);
       const state = reactive({
         ruleForm: {
-          merchantNo: 'SR00000000',
-          username: 'madmin',
-          password: '123456',
+          merchantNo: '',
+          username: '',
+          password: '',
         },
+        merchants: [],
         loading: false,
         checkedPwd: false,
         redirect: undefined,
@@ -81,22 +96,47 @@
           handleLogin();
         }
       };
+      const getMerchantList = async () => {
+        var object = {
+          url: apis.login.getMerchantListApi,
+          params: {},
+          removeEmpty: false,
+        };
+        try {
+          const response = await commonUtil.doPost(object);
+          if (response && (response.code === '200' || response.code === 200)) {
+            const list = response.responseData || [];
+            state.merchants = Array.isArray(list) ? list : [];
+            if (state.merchants.length > 0 && !state.ruleForm.merchantNo) {
+              state.ruleForm.merchantNo = state.merchants[0].merchantNo;
+            }
+          }
+        } catch (e) {
+          console.error('加载商户列表失败', e);
+        }
+      };
       const getMerchantMode = async () => {
         var object = {
           url: apis.login.getMerchantModeApi,
           params: {},
           removeEmpty: false,
         };
-        commonUtil.doPost(object).then((response) => {
-          if (response.code === '200') {
+        try {
+          const response = await commonUtil.doPost(object);
+          if (response && (response.code === '200' || response.code === 200)) {
             state.merchantMode = response.responseData;
             if (state.merchantMode == 1) {
               state.rules.merchantNo = [
-                { required: true, message: '请输入商户号', trigger: 'blur' },
+                { required: true, message: '请选择商户号', trigger: 'change' },
               ];
+              await getMerchantList();
+              await nextTick();
+              validateForm.value && validateForm.value.clearValidate();
             }
           }
-        });
+        } catch (e) {
+          console.error('获取商户模式失败', e);
+        }
       };
       const handleLogin = async () => {
         const form = unref(validateForm);
