@@ -14,18 +14,18 @@
       @close="handleClose"
     >
       <div class="logo df-c" style="width: 231px; margin-left: -10px;">
-        <div>
-          <img
-            v-show="!isCollapse"
-            src="@/assets/img/SupX.png"
-            style="margin-left: 20px;width: auto"
-          />
-          <img
-            v-show="isCollapse"
-            src="@/assets/img/SupX-all.svg"
-            style="margin-left: 20px;width: auto"
-          />
+        <!-- 与原 SupX.png(约134×26) 同高：图标用图，文字用 HTML，避免缩放变形 -->
+        <div v-show="!isCollapse" class="brand-lockup">
+          <img class="brand-icon" src="@/assets/img/logo.png" alt="" />
+          <i class="brand-divider"></i>
+          <span class="brand-text">中岳世纪</span>
         </div>
+        <img
+          v-show="isCollapse"
+          class="brand-icon-collapse"
+          src="@/assets/img/logo.png"
+          alt=""
+        />
       </div>
       <div v-if="!isCollapse" class="filter-menu">
         <el-input v-model="filterText" style="width: 100%" placeholder="搜索菜单" clearable>
@@ -199,6 +199,47 @@
     @include supx-header-bg(0);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s;
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      height: 32px;
+      margin-left: 32px; // 往右一点
+      line-height: 1;
+    }
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      flex: none;
+      display: block;
+    }
+    .brand-divider {
+      width: 1px;
+      height: 16px;
+      margin: 0 10px;
+      background: rgba(255, 255, 255, 0.7);
+      flex: none;
+      font-style: normal;
+    }
+    .brand-text {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      line-height: 32px;
+      white-space: nowrap;
+      font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      transform: none;
+      display: inline-block;
+    }
+    .brand-icon-collapse {
+      width: 26px;
+      height: 26px;
+      margin-left: 12px;
+      object-fit: contain;
+      display: block;
+    }
   }
   .aside {
     position: relative;

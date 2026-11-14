@@ -269,6 +269,14 @@ export default {
       formsDatasourceAttrs: {}, //填报报表对应的必填属性，用来校验新增行数据是否所有的必填属性都填了
       addDataCoords: {}, //新增数据对应的坐标和扩展属性
       apiHeaders: [],
+      printConfig: {
+        printMode: 'browser',
+        lodopEnabled: false,
+        lodopScriptUrl: 'http://localhost:8000/CLodopfuncs.js',
+        urlOverrideEnabled: true,
+        autoPrint: false,
+      },
+      pendingAutoPrint: false,
     };
   },
   mounted() {
@@ -286,10 +294,32 @@ export default {
     if (this.isDrill == 2) {
       this.currentTplId = this.$route.query.tplId;
     }
+    this.pendingAutoPrint = this.$route.query.autoPrint == '1';
+    this.loadPrintConfig();
     this.getReportParam();
     var that = this;
   },
   methods: {
+    loadPrintConfig() {
+      if (!this.currentTplId) {
+        return;
+      }
+      const obj = {
+        url: this.apis.common.getPrintConfigApi,
+        params: {
+          tplId: this.currentTplId,
+          autoPrint: this.pendingAutoPrint,
+        },
+      };
+      if (this.$route.query.printMode) {
+        obj.params.printMode = this.$route.query.printMode;
+      }
+      this.commonUtil.doPost(obj).then((response) => {
+        if (response.code == '200') {
+          this.printConfig = response.responseData;
+        }
+      });
+    },
     initLuckySheet() {
       var options = this.sheetOptions;
       luckysheet.setServerAttr('version', 'vue3');
@@ -926,6 +956,12 @@ export default {
             }
           }
           this.loading = false;
+          if (isInit == 1 && this.pendingAutoPrint) {
+            this.pendingAutoPrint = false;
+            this.$nextTick(() => {
+              this.pdfPrint(1);
+            });
+          }
         } else {
           this.loading = false;
         }
@@ -1379,7 +1415,7 @@ export default {
                 }
               });
             } else {
-              this.commonUtil.printPdf(obj.url, obj.params, headers, this.closeLoading);
+              this.commonUtil.printPdfByMode(obj.url, obj.params, headers, this.printConfig, this.closeLoading);
             }
           } catch (error) {
             this.loading = false;
@@ -1463,7 +1499,7 @@ export default {
       this.loadingText = '打印中...';
       this.loading = true;
       try {
-        this.commonUtil.printPdf(obj.url, obj.params, headers, this.closeLoading);
+        this.commonUtil.printPdfByMode(obj.url, obj.params, headers, this.printConfig, this.closeLoading);
       } catch (error) {
         this.loading = false;
       }
@@ -1495,7 +1531,7 @@ export default {
       }
       this.loading = true;
       try {
-        this.commonUtil.printPdf(obj.url, obj.params, headers, this.closeLoading);
+        this.commonUtil.printPdfByMode(obj.url, obj.params, headers, this.printConfig, this.closeLoading);
       } catch (error) {
         this.loading = false;
       }

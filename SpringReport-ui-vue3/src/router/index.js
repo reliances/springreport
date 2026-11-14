@@ -839,7 +839,7 @@ export const constantThirdPartyRoutes = [
 export const asyncRoutes = [];
 
 const router = createRouter({
-  history: createWebHistory('/SupReport'),
+  history: createWebHistory('/JxReport'),
   routes: constantRoutes,
   // routes:constantThirdPartyRoutes,
 });
