@@ -180,6 +180,7 @@ export default {
       },
       dataSource: [], //模板数据源
       isParamMerge: true,
+      printMode: 1,
       reportTpls: [], //下钻报表
       paramForm: {
         paramName: '', //参数名称
@@ -710,6 +711,13 @@ export default {
         { type: 'Input', label: '下边距', prop: 'bottomMargin', rules: { required: true ,type:'positiveInt'}},
         { type: 'Input', label: '字体缩放倍数', prop: 'fontMulti', rules: { required: true, type: 'number', min: 0.01, max: 10, float: 2 }},
         { type: 'Input', label: '行高缩放倍数', prop: 'rowheightMulti', rules: { required: true, type: 'number', min: 0.01, max: 10, float: 2 }},
+        {
+          type: 'Select',
+          label: '打印方式',
+          prop: 'printMode',
+          rules: { required: true },
+          options: this.selectUtil.tplPrintMode,
+        },
       ],
       settingFormData: {
         pageType: null, //纸张类型
@@ -736,7 +744,8 @@ export default {
         topMargin:null,
         bottomMargin:null,
         fontMulti:1.0,
-        rowheightMulti:1.0
+        rowheightMulti:1.0,
+        printMode: 1,
       },
       defaultSettingFormData: {
         pageType: 2, //纸张类型
@@ -763,7 +772,8 @@ export default {
         topMargin:null,
         bottomMargin:null,
         fontMulti:1.0,
-        rowheightMulti:1.0
+        rowheightMulti:1.0,
+        printMode: 1,
       },
       //modal 数据 end
       //modal 按钮 start
@@ -2478,6 +2488,7 @@ export default {
         let reportTplId = this.$route.query.tplId;
         params.tplId = reportTplId;
         params.isParamMerge = this.isParamMerge ? '1' : '2';
+        params.printMode = this.printMode;
         params.configs = sheetConfigs;
         params.delSheetsIndex = this.delSheetsIndex;
         params.allowUpdate=this.sheetOptions.allowUpdate
@@ -2970,6 +2981,7 @@ export default {
             }
           }
           _this.isParamMerge = response.responseData.isParamMerge == '1' ? true : false;
+          _this.printMode = response.responseData.printMode ? response.responseData.printMode : 1;
           _this.isThirdParty = response.responseData.isThirdParty;
           _this.init(charts);
         }
@@ -4162,6 +4174,7 @@ export default {
           printSettings.bottomMargin = that.settingFormData.bottomMargin
           printSettings.fontMulti = that.settingFormData.fontMulti
           printSettings.rowheightMulti = that.settingFormData.rowheightMulti
+          that.printMode = that.settingFormData.printMode || 1;
           if (printSettings.horizontalPage == 1) {
             luckysheet.addLuckysheetDivider(printSettings.horizontalPageColumn);
           } else {
@@ -5326,8 +5339,10 @@ export default {
         that.settingFormData.bottomMargin = printSettings.bottomMargin
         that.settingFormData.fontMulti = printSettings.fontMulti
         that.settingFormData.rowheightMulti = printSettings.rowheightMulti
+        that.settingFormData.printMode = that.printMode || 1;
       } else {
         that.settingFormData = { ...that.defaultSettingFormData };
+        that.settingFormData.printMode = that.printMode || 1;
       }
       that.changePageHeaderShow();
       that.changeWaterMarkShow();
