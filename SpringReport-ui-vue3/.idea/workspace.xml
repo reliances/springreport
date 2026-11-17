@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891cdd1a-56a0-4af8-a994-760a0aea5122" name="更改" comment="首次提交">
-      <change afterPath="$PROJECT_DIR$/src/assets/login_bg.jpg" afterDir="false" />
+    <list default="true" id="891cdd1a-56a0-4af8-a994-760a0aea5122" name="更改" comment="remove old">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/img/SupX.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/SupX.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/img/logoWithName.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/logoWithName.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/setting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/Menu/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/Menu/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/前端部署操作文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/前端部署操作文档.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/lodopPrint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/selectValue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/selectValue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/luckyreport/luckyReportPreview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringReport/web/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringReport/web/src/main/resources/application-dev.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +108,11 @@
       <workItem from="1794561067175" duration="128000" />
       <workItem from="1794562141175" duration="19000" />
       <workItem from="1794562167363" duration="882000" />
-      <workItem from="1794632166521" duration="3680000" />
+      <workItem from="1794632166521" duration="7312000" />
+      <workItem from="1794640436205" duration="1736000" />
+      <workItem from="1794793120438" duration="82000" />
+      <workItem from="1794819953476" duration="655000" />
+      <workItem from="1794904468484" duration="1720000" />
     </task>
     <task id="LOCAL-00001" summary="调整名称.">
       <option name="closed" value="true" />
@@ -149,16 +146,36 @@
       <option name="project" value="LOCAL" />
       <updated>1794635331873</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="remove old">
+      <option name="closed" value="true" />
+      <created>1794636287930</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1794636287930</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="调整名称." />
     <MESSAGE value="修改页面样式,蓝色底色" />
     <MESSAGE value="首次提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="首次提交" />
+    <MESSAGE value="remove old" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove old" />
   </component>
 </project>

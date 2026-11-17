@@ -13,7 +13,7 @@ import MSG_LIST from './message'
 import Axios from 'axios'
 import moment from 'moment'
 import commonConstants from './constants'
-import lodopPrint from './lodopPrint'
+import localPrintControl from './localPrintControl'
 // import router from '../../router'
 import * as echarts from 'echarts';
 import VChart from '@visactor/vchart';
@@ -450,20 +450,22 @@ commonUtil.fetchPdfBlob = function(url, params, headers) {
 }
 commonUtil.printPdfByMode = function(url, params, headers, printConfig, callback) {
     const mode = (printConfig && printConfig.printMode) ? printConfig.printMode : 'browser';
-    const lodopEnabled = printConfig && printConfig.lodopEnabled;
-    if ((mode === 'preview' || mode === 'silent') && lodopEnabled) {
-        return lodopPrint.ensureLodop(printConfig.lodopScriptUrl).then(() => {
-            return commonUtil.fetchPdfBlob(url, params, headers);
-        }).then((blob) => {
-            return lodopPrint.printPdfBlob(blob, mode);
+    const agentEnabled = printConfig && printConfig.agentEnabled;
+    const agentUrl = (printConfig && printConfig.agentUrl) ? printConfig.agentUrl : localPrintControl.DEFAULT_AGENT_URL;
+    const templateId = params && (params.tplId || params.templateId);
+
+    // 静默走本机打印控件
+    if (mode === 'silent' && agentEnabled) {
+        return commonUtil.fetchPdfBlob(url, params, headers).then((blob) => {
+            return localPrintControl.printPdfBlob(blob, agentUrl, { templateId });
         }).then(() => {
             if (callback) {
                 callback();
             }
         }).catch((error) => {
-            console.warn('Lodop print failed, fallback to browser', error);
+            console.warn('Local print agent failed, fallback to browser', error);
             commonUtil.showMessage({
-                message: 'Lodop 不可用，已回退浏览器打印',
+                message: '本机打印控件不可用，已回退浏览器打印',
                 type: commonConstants.messageType.warning
             });
             commonUtil.printPdf(url, params, headers, callback);

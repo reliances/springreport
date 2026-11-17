@@ -1012,7 +1012,7 @@ selectUtil.dataType = [
 ]
 selectUtil.tplPrintMode = [
   { value: 1, label: '浏览器打印' },
-  { value: 2, label: 'Lodop预览打印' },
-  { value: 3, label: 'Lodop静默打印' },
+  { value: 2, label: '浏览器预览打印' },
+  { value: 3, label: '本机静默打印' },
 ]
 export default selectUtil;

@@ -271,8 +271,8 @@ export default {
       apiHeaders: [],
       printConfig: {
         printMode: 'browser',
-        lodopEnabled: false,
-        lodopScriptUrl: 'http://localhost:8000/CLodopfuncs.js',
+        agentEnabled: true,
+        agentUrl: 'http://127.0.0.1:18666',
         urlOverrideEnabled: true,
         autoPrint: false,
       },
